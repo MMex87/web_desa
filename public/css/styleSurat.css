@@ -1,0 +1,100 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+.lp {
+  background-color: lightcoral;
+  background-image: url(../img/bg-land.png);
+  background-position: center;
+}
+
+p {
+  color: #263238;
+}
+
+/* input formulir */
+.title {
+  width: 240px;
+  height: 40px;
+  background-color: #c9e51a;
+  margin-left: 40px;
+  margin-top: 40px;
+  margin-bottom: -10px;
+  border-radius: 40px;
+  text-indent: 20px;
+  color: white;
+}
+
+.btnb {
+  margin-top: 50px;
+}
+
+.konten {
+  width: 100%;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 10px auto;
+  background-color: darkgrey;
+  border-radius: 15px;
+
+}
+
+h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+.surat {
+  background-color: #ebebeb;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+
+
+/* tentang desa */
+.logos {
+  float: left;
+  margin-top: 20%;
+}
+
+.textlist {
+  background-color: #C4C4C4;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.cardlayout .headcard {
+  height: 28px;
+  width: 180px;
+  background-color: #c9e51a;
+  border-radius: 40px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.cardlayout .headcard span {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+/* surat */
+
+.surat a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.surat a:link {
+  color: black;
+  text-decoration: none;
+}

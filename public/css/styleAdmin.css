@@ -1,0 +1,123 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contain-menu {
+    background-color: #EBEBEB;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px black;
+}
+
+.contain-konten {
+    background-color: #EBEBEB;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px black;
+}
+
+.textberjalan {
+    background-color: #EBEBEB;
+    height: 25px;
+    width: 98%;
+    margin-left: 10px;
+    box-shadow: 5px 5px 10px black;
+}
+
+.menu {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.menu-item {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding-top: 7px;
+    padding-left: 10px;
+}
+
+.menu-item a {
+    color: black;
+    font-weight: 700;
+    margin-top: -3px;
+}
+
+.menu-item a:hover {
+    color: black;
+}
+
+.menu-item a:visited {
+    color: black;
+}
+
+/* article */
+
+.menu-konten {
+    height: 500px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.kartu {
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.badan {
+    overflow: auto;
+    max-height: 400px;
+    box-sizing: border-box;
+}
+
+.kartu .judul {
+    height: 50px;
+    overflow: hidden;
+}
+
+.kartu .tanggal {
+    padding: 5px 2px;
+}
+
+/* agenda */
+.kartu .juduldesc {
+    max-height: 30px;
+    overflow: hidden;
+}
+
+.kartu .desc {
+    max-height: 20px;
+    overflow: hidden;
+}
+
+.kartu .tanggal_desc {
+    padding: 5px 2px;
+}
+
+
+/* Data Penduduk */
+
+#content_penduduk {
+    background: #fff;
+    margin-top: 20px;
+    border: 1px solid black;
+}
+
+
+/* Data Formulir */
+
+.kepala-formulir h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.kartu-surat {
+    height: 120px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.kepala_body {
+    font-weight: bold;
+}

@@ -1,0 +1,185 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Beranda */
+
+.cardlayout {
+    margin-top: 50px;
+}
+
+.sampul {
+    background-image: url("/img/bg-detail.png");
+    background-repeat: no-repeat;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.text1 {
+    margin-top: 20px;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.text2 {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 35px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+
+.cardlayout .headcard {
+    height: 28px;
+    width: 180px;
+    background-color: #c9e51a;
+    border-radius: 40px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.cardlayout .headcard span {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.agenda {
+    padding-top: 5px;
+    padding-left: 5px;
+    font-weight: 800;
+    font-size: 27px;
+}
+
+.agenda2 {
+    padding: 5px;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.surat {
+    background-color: #ebebeb;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.login {
+    background-color: #ebebeb;
+    width: 50%;
+    height: 50%;
+    margin-top: 5%;
+    text-align: center;
+    justify-content: center;
+    border: #263238 2px solid;
+}
+
+.img {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.header1 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.header2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.button {
+    height: 50px;
+    width: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+
+#cardlayout {
+    margin-top: 50px;
+}
+
+
+#slideArticle {
+    height: 200px;
+}
+
+.isi-artikel {
+    border: 2px solid #EBEBEB;
+    width: 100%;
+    height: 100%;
+}
+
+.judul-artikel {
+    margin-top: -100px;
+}
+
+.deskripsi {
+    overflow: hidden;
+    max-height: 170px;
+}
+
+#cardlayout .headcard {
+    height: 28px;
+    width: 150px;
+    background-color: #C9E51A;
+    border-radius: 40px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#cardlayout .headcard span {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+
+/* Informasi */
+
+#content-agenda {
+    border-radius: 15px;
+    width: 100%;
+    height: 550px;
+    background-color: #EBEBEB;
+    padding: 10px;
+}
+
+
+#card-agenda {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 120px;
+    background-color: #C4C4C4;
+    border-radius: 20px;
+
+}
+
+.artikel-list {
+    height: 100px;
+    width: 100%;
+}
+
+.isi-agenda {
+    overflow: hidden;
+    max-height: 45px;
+}
+
+.kartu-tengah {
+    overflow: hidden;
+    max-height: 100px;
+}
+
+
+/* tentang */

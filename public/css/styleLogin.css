@@ -1,0 +1,60 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.judul {
+    margin-top: 30px;
+}
+
+.atas strong {
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.bawah h4 {
+    font-weight: 600;
+}
+
+.konten {
+    margin-top: 20px;
+    background-color: #EBEBEB;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px black;
+    padding-bottom: 50px;
+}
+
+.konten .judul {
+    text-align: center;
+}
+
+.konten .judul strong {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.isiform {
+    margin-top: 20px;
+}
+
+/* Register */
+
+.register .konten {
+    margin-top: 20px;
+    background-color: #EBEBEB;
+    height: 500px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px black;
+}
+
+.register .konten .judul {
+    text-align: center;
+}
+
+.register .konten .judul strong {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.register .isiform {
+    margin-top: 20px;
+}
