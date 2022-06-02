@@ -17,6 +17,7 @@
                 <div id="content-agenda">
                     <nav class="navbar navbar-expand-lg">
                         <div class="container-fluid mb-3">
+                            <div class=""></div>
                             <div class="justify-content-end" id="navbarSupportedContent">
                                 <form class="d-flex" method="post" action="">
                                     <input class="form-control me-2" name="cari_agenda" type="search"
@@ -29,8 +30,6 @@
                     </nav>
                     <div class="container-fluid" style="overflow: auto; max-height:450px;">
                         <?php
-
-                        use CodeIgniter\I18n\Time;
 
                         foreach ($agenda as $rows) : ?>
                         <div id="tanggal-agenda" class="ms-2">
@@ -59,7 +58,8 @@
             </div>
             <div class="artikel-content mt-3">
                 <div class="artikel-list">
-                    <?php foreach ($artikel as $row) : ?>
+                    <?php $i = 0;
+                    foreach ($artikel as $row) : ?>
                     <div class="card kartu" style="width: 100%; max-height: 200px;">
                         <div class="row g-0">
                             <div class="col-md-2" style="height: 200px; overflow: hidden;">
@@ -71,15 +71,16 @@
                                     <h5 class="card-title"><?= $row['judul_artikel']; ?></h5>
                                     <p class="card-text kartu-tengah"><?= $row['artikel']; ?></p>
                                     <p class="card-text"><small class="text-muted">Last updated
-                                            <?php $update = Time::parse($row['updated_at'], 'Asia/Jakarta');
-                                                echo $update->humanize();
-                                                ?></small>
+                                            <?php echo $waktu[$i]->humanize() ?>
+                                        </small>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <?php endforeach; ?>
+                    <?php
+                        $i++;
+                    endforeach; ?>
                 </div>
             </div>
         </div>

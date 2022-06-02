@@ -17,14 +17,21 @@ class Informasi extends BaseController
     public function index()
     {
         $db = \Config\Database::connect();
+        $builderArtikel = $db->table('tbl_artikel');
 
         $keyArtikel = $this->request->getVar('cariArtikel');
         $keyAgenda = $this->request->getVar('cari_agenda');
 
         if ($keyArtikel) {
             $artikel = $db->query('SELECT * FROM `tbl_artikel` WHERE judul_artikel LIKE "%' . $keyArtikel . '%"AND status = 1')->getResultArray();
+            $builderArtikel->like($keyArtikel);
+            $builderArtikel->from('judul_artikel');
+            $builderArtikel->where('status', 1);
+            $artikelWaktu = $db->query('SELECT crated_at FROM `tbl_artikel` WHERE judul_artikel LIKE "%' . $keyArtikel . '%"AND status = 1')->getResultArray();
         } else {
             $artikel = $db->query('SELECT * FROM `tbl_artikel` WHERE status = 1')->getResultArray();
+            $builderArtikel->where('status', 1);
+            $artikelWaktu = $db->query('SELECT created_at FROM `tbl_artikel` WHERE status = 1')->getResultArray();
         }
 
         if ($keyAgenda) {
@@ -34,6 +41,20 @@ class Informasi extends BaseController
         }
 
 
+        // d($artikelWaktu);
+        // dd($isiArtikel);
+
+        // $update = Time::parse('March 9, 2016 12:00:00', 'Asia/Jakarta');
+        // $update->humanize();
+
+        $isiArtikel = $builderArtikel->countAllResults();
+        $i = 0;
+        while ($i < $isiArtikel) {
+            $waktu[$i] = Time::parse($artikelWaktu[$i]['created_at'], 'Asia/Jakarta');
+            // d($waktu);
+            $i++;
+        }
+        // dd($update);
 
         $data = [
             'navbar'        => 'informasi',
@@ -41,7 +62,8 @@ class Informasi extends BaseController
             'artikel'       => $artikel,
             'keyArtikel'    => $keyArtikel,
             'agenda'        => $agenda,
-            'cariAgenda'     => $keyAgenda
+            'cariAgenda'    => $keyAgenda,
+            'waktu'         => $waktu
         ];
         return view('/user/informasi/index', $data);
     }
