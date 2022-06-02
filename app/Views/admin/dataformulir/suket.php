@@ -3,6 +3,13 @@
 
 <?= $this->section('contentAdmin'); ?>
 
+<?php if (session()->getFlashdata('pesan')) : ?>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <?= session()->getFlashdata('pesan'); ?>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<?php endif; ?>
+
 <div class="konten mt-3">
     <div class="menu-konten">
         <div class="kepala mb-3">
@@ -57,7 +64,7 @@
                         </div>
                         <div class="col-2 mt-4">
                             <div class="delete float-end">
-                                <form class="d-inline" action="agenda/" method="post">
+                                <form class="d-inline" action="/formulir/<?= $row['id_surat']; ?>" method="post">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button class="btn" onclick="return confirm('apakah anda Yakin?')">

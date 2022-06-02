@@ -110,7 +110,7 @@
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end btnb">
                     <button class="btn btn-primary me-md-2" type="button"
                         onclick="top.location='/surat'">Kembali</button>
-                    <button class="btn btn-primary" type="submit">Selanjutnya</button>
+                    <button class="btn btn-primary" type="submit">Kirim</button>
                 </div>
             </form>
         </div>

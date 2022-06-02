@@ -82,4 +82,11 @@ class Formulir extends BaseController
         ];
         return view('/admin/dataformulir/view', $data);
     }
+
+    public function delete($id)
+    {
+        $this->suratModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil DiHapus');
+        return redirect()->back();
+    }
 }

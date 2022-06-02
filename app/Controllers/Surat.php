@@ -195,8 +195,13 @@ class Surat extends BaseController
             'status'            => '1'
         ]);
 
-        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
-
-        return redirect()->back();
+        $db = \Config\Database::connect();
+        $id_surat = $db->query('SELECT * FROM tbl_surat')->getLastRow();
+        $data = [
+            'navbar'    => 'surat',
+            'title'     => 'surat',
+            'id_surat'  => $id_surat
+        ];
+        return view('/user/surat/confirm', $data);
     }
 }
