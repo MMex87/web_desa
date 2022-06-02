@@ -21,7 +21,7 @@
         </div>
         <div>
             <button type="button" class="btn btn-outline-primary"
-                onclick="top.location='/surat/download?id_status=<?= $id_surat ?>'">Download</button>
+                onclick="top.location='/surat/download?id_surat=<?= $id_surat ?>'">Download</button>
         </div>
     </div>
 

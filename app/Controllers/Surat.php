@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\SuratModel;
+use TCPDF;
 
 class Surat extends BaseController
 {
@@ -106,9 +107,14 @@ class Surat extends BaseController
             'status'            => '1'
         ]);
 
-        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
-
-        return redirect()->back();
+        $db = \Config\Database::connect();
+        $id_surat = $db->query('SELECT * FROM tbl_surat')->getLastRow();
+        $data = [
+            'navbar'    => 'surat',
+            'title'     => 'surat',
+            'id_surat'  => $id_surat->id_surat
+        ];
+        return view('/user/surat/confirm', $data);
     }
 
     public function savesuket()
@@ -200,8 +206,51 @@ class Surat extends BaseController
         $data = [
             'navbar'    => 'surat',
             'title'     => 'surat',
-            'id_surat'  => $id_surat
+            'id_surat'  => $id_surat->id_surat
         ];
         return view('/user/surat/confirm', $data);
+    }
+
+    public function download()
+    {
+        $id = $this->request->getGet('id_surat');
+
+        // create new PDF document
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+        // set document information
+        $pdf->setCreator(PDF_CREATOR);
+        $pdf->setAuthor('KesimanTengah');
+        $pdf->setTitle('KesimanTengah');
+        $pdf->setSubject('Nomor Pengambilan');
+        $pdf->setKeywords('Nomor Pengambilan');
+
+        $pdf->setFont('times', '', 45, '', true);
+
+        $pdf->AddPage('P', 'A4');
+
+        $html = '<!doctype html>
+        <html lang="en">
+        
+        <body>
+            
+            <h1>Nomer Pengambilan</h1>
+            <br>
+            <br>
+            <span style="font-size: 150px;">' . $id . '</span>
+
+        </body>
+
+        </html>';
+
+        $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+
+        $this->response->setContentType('application/pdf');
+
+        // ---------------------------------------------------------
+
+        // Close and output PDF document
+        // This method has several options, check the source code documentation for more information.
+        $pdf->Output('Nomer_Pengambilan_' . $id . '.pdf', 'I');
     }
 }
