@@ -59,6 +59,8 @@ $routes->get('/penduduk', 'DataPenduduk::index');
 
 // Data formulir
 $routes->get('/formulir', 'Formulir::index');
+$routes->get('/formulir/viewsk/(:num)', 'Formulir::viewsk/$1');
+$routes->get('/formulir/viewskck/(:num)', 'Formulir::viewskck/$1');
 
 /*
  * --------------------------------------------------------------------

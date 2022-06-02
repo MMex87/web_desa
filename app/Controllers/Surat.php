@@ -94,7 +94,7 @@ class Surat extends BaseController
 
         $this->suratModel->save([
             'nama_lengkap'      => $nama,
-            'nama_surat'        => 'Surak Keterangan Catatan Kepolisian',
+            'nama_surat'        => 'Surat Keterangan Catatan Kepolisian',
             'nik'               => $nik,
             'jenis_kelamin'     => $gender,
             'tempat'            => $tempat,
@@ -103,6 +103,7 @@ class Surat extends BaseController
             'status_perkawinan' => $kawin,
             'alamat'            => $alamat,
             'agama'             => $agama,
+            'status'            => '1'
         ]);
 
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
@@ -191,6 +192,7 @@ class Surat extends BaseController
             'agama'             => $agama,
             'maksud'            => $maksud,
             'tujuan'            => $tujuan,
+            'status'            => '1'
         ]);
 
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');

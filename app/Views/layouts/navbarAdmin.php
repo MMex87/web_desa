@@ -30,7 +30,19 @@
                         <img src="/img/forms.png">
                     </div>
                     <div class="col">
-                        <a class="nav-link" href="/formulir">Formulir</a>
+                        <a class="nav-link position-relative" href="/formulir">
+                            Formulir
+                            <?php
+                            $db = \Config\Database::connect();
+                            $notif = $db->query('SELECT COUNT(nama_lengkap) as hitung FROM tbl_surat WHERE status = 1;')->getRow();
+                            ?>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger <?= ($notif->hitung == 0) ? 'visually-hidden' : '' ?>">
+                                <?= $notif->hitung ?>
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </a>
+
                     </div>
                 </div>
             </li>

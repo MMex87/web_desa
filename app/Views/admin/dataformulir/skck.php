@@ -41,7 +41,7 @@
             </div>
             <div>
                 <?php foreach ($surat as $row) : ?>
-                <div class="kartu-surat mb-3" style="background: #EBEBEB;">
+                <div class="kartu-surat mb-3 " style="background: #EBEBEB;">
                     <div class="row">
                         <div class="col-4">
                             <?= $row['nama_lengkap']; ?>
@@ -65,8 +65,15 @@
                                     </button>
                                 </form>
                             </div>
-                            <div class="edit float-end">
-                                <button type="button" class="btn ubah">
+                            <div class="edit float-end position-relative">
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger <?= ($row['status'] == 0) ? 'visually-hidden' : '' ?>">
+                                    *
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                                <button type="button"
+                                    onclick="top.location='/formulir/viewskck/<?= $row['id_surat'] ?>'"
+                                    class="btn ubah">
                                     <img src="/img/edit.png">
                                 </button>
                             </div>
@@ -75,6 +82,11 @@
                 </div>
                 <?php endforeach; ?>
             </div>
+        </div>
+    </div>
+    <div class="kaki row justify-content-end mt-2">
+        <div class="col-2">
+            <button type="button" class="btn btn-outline-primary" onclick="top.location='/formulir'">kembali</button>
         </div>
     </div>
 </div>

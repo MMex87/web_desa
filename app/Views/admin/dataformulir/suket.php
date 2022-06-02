@@ -65,8 +65,14 @@
                                     </button>
                                 </form>
                             </div>
-                            <div class="edit float-end">
-                                <button type="button" class="btn ubah">
+                            <div class="edit float-end position-relative">
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger <?= ($row['status'] == 0) ? 'visually-hidden' : '' ?>">
+                                    *
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                                <button type="button" class="btn ubah"
+                                    onclick="top.location='/formulir/viewsk/<?= $row['id_surat'] ?>'">
                                     <img src="/img/edit.png">
                                 </button>
                             </div>
@@ -75,6 +81,11 @@
                 </div>
                 <?php endforeach; ?>
             </div>
+        </div>
+    </div>
+    <div class="kaki row justify-content-end mt-2">
+        <div class="col-2">
+            <button type="button" class="btn btn-outline-primary" onclick="top.location='/formulir'">kembali</button>
         </div>
     </div>
 </div>
