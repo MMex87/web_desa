@@ -79,7 +79,7 @@
                             </div>
                             <div class="col mt-4">
                                 <div class="lihat float-start">
-                                    <button onclick=`top.location="/informasi/viewArtikel/<?= $row['id_artikel']; ?>" `
+                                    <button onclick="top.location=`/informasi/viewArtikel/<?= $row['id_artikel']; ?>` "
                                         class="btn" data-bs-toggle="tooltip" data-bs-placement="top" title="View">
                                         <img src="/img/preview.png">
                                     </button>

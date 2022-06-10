@@ -28,9 +28,10 @@
         </div>
 
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <?php if ($artikel) : ?>
             <div class="carousel-inner" style="background-color: #ebebeb">
                 <?php $i = 1;
-                foreach ($artikel as $row) : ?>
+                    foreach ($artikel as $row) : ?>
                 <div class="carousel-item <?= ($i == 1) ? 'active' : '' ?> p-3">
                     <div class="row">
                         <div class="col-2"></div>
@@ -48,9 +49,31 @@
                     </div>
                 </div>
                 <?php
-                    $i++;
-                endforeach; ?>
+                        $i++;
+                    endforeach; ?>
             </div>
+            <?php else : ?>
+            <div class="carousel-inner" style="background-color: #ebebeb">
+                <div class="carousel-item active p-3">
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col">
+                            <div id="slideArticle">
+                                <div class="container-fluid">
+                                    <div class="kosong-wrap-beranda">
+                                        <div class="kosong-item-beranda">
+                                            <h3>Tidak ada Artikel yang di post</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                </div>
+
+            </div>
+            <?php endif; ?>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                 data-bs-slide="prev">
                 <img src="/img/polygon-kiri.png" alt="" />

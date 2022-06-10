@@ -28,10 +28,11 @@
                             </div>
                         </div>
                     </nav>
+                    <?php if ($agenda) : ?>
                     <div class="container-fluid" style="overflow: auto; max-height:450px;">
                         <?php
 
-                        foreach ($agenda as $rows) : ?>
+                            foreach ($agenda as $rows) : ?>
                         <div id="tanggal-agenda" class="ms-2">
                             <?= $rows['tanggal_mulai'] . ' - ' . $rows['tanggal_selesai']; ?>
                         </div>
@@ -41,6 +42,15 @@
                         </div>
                         <?php endforeach; ?>
                     </div>
+                    <?php else : ?>
+                    <div class="container-fluid">
+                        <div class="kosong-wrap">
+                            <div class="kosong-item">
+                                <h3>Tidak ada Agenda yang di post</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -57,9 +67,10 @@
                 </form>
             </div>
             <div class="artikel-content mt-3">
+                <?php if ($artikel) : ?>
                 <div class="artikel-list">
                     <?php $i = 0;
-                    foreach ($artikel as $row) : ?>
+                        foreach ($artikel as $row) : ?>
                     <div class="card kartu" style="width: 100%; max-height: 200px;">
                         <div class="row g-0">
                             <div class="col-md-2" style="height: 200px; overflow: hidden;">
@@ -67,7 +78,8 @@
                                     width="200" height="200">
                             </div>
                             <div class="col-md-10">
-                                <div class="card-body">
+                                <div class="card-body kartu-informasi"
+                                    onclick="top.location='/informasi/viewArtikel/<?= $row['id_artikel']; ?>'">
                                     <h5 class="card-title"><?= $row['judul_artikel']; ?></h5>
                                     <p class="card-text kartu-tengah"><?= $row['artikel']; ?></p>
                                     <p class="card-text"><small class="text-muted">Last updated
@@ -79,9 +91,18 @@
                         </div>
                     </div>
                     <?php
-                        $i++;
-                    endforeach; ?>
+                            $i++;
+                        endforeach; ?>
                 </div>
+                <?php else : ?>
+                <div class="container-fluid">
+                    <div class="kosong-wrap-artikel">
+                        <div class="kosong-item-artikel">
+                            <h3>Tidak ada Artikel yang di post</h3>
+                        </div>
+                    </div>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -92,9 +113,6 @@
 
     </div>
 </div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
 $(document).ready(function() {

@@ -15,7 +15,6 @@
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="input-group mb-3 col">
-                            <span class="input-group-text" id="basic-addon1"><?= lang('Auth.email') ?></span>
                             <input type="email" name="email"
                                 class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>"
                                 placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>" aria-label="email"
@@ -28,7 +27,6 @@
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="input-group mb-3 col">
-                            <span class="input-group-text" id="basic-addon2"><?= lang('Auth.username') ?></span>
                             <input type="text" name="username"
                                 class="form-control <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>"
                                 placeholder="<?= lang('Auth.username') ?>" value="<?= old('username') ?>"
@@ -40,7 +38,6 @@
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="input-group mb-3 col">
-                            <span class="input-group-text" id="basic-addon3"><?= lang('Auth.password') ?></span>
                             <input type="password" name="password"
                                 class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>"
                                 placeholder="<?= lang('Auth.password') ?>" aria-label="password"
@@ -52,7 +49,6 @@
                     <div class="row">
                         <div class="col-3"></div>
                         <div class="input-group mb-3 col">
-                            <span class="input-group-text" id="basic-addon4"><?= lang('Auth.repeatPassword') ?></span>
                             <input type="password" name="pass_confirm"
                                 class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>"
                                 placeholder="<?= lang('Auth.repeatPassword') ?>" aria-label="repeatPassword"

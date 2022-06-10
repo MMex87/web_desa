@@ -23,8 +23,8 @@
     <!-- navbar -->
     <nav class="navbar sticky-top navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/img/header_right.png" alt="logo" width="250" class="d-inline-block align-text-right"
+            <a class="navbar-brand" href="/">
+                <img src="/img/header_right.png" alt="logo" width="200" class="d-inline-block align-text-right"
                     style="margin-left: 15px;" />
             </a>
         </div>

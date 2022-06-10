@@ -12,6 +12,7 @@ body {
     background-color: #EBEBEB;
     border: 1px solid black;
     box-shadow: 5px 5px 10px black;
+    box-sizing: border-box;
 }
 
 .textberjalan {
@@ -120,4 +121,61 @@ body {
 
 .kepala_body {
     font-weight: bold;
+}
+
+
+/* admin */
+
+.ucapan {
+    display: flex;
+    justify-content: center;
+}
+
+.pesan {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ps-sk {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ps-warp {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    border: 1px solid #EBEBEB;
+}
+
+.icon {
+    height: min-content;
+    width: min-content;
+    padding: 0;
+}
+
+.ps-skck {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ps-title {
+    display: flex;
+    justify-content: center;
 }

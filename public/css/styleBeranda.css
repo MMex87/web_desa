@@ -17,6 +17,20 @@ body {
     padding-bottom: 50px;
 }
 
+.kosong-wrap-beranda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+}
+
+.kosong-item-beranda {
+    width: 500px;
+    height: 50px;
+    display: flex;
+}
+
 .text1 {
     margin-top: 20px;
     font-weight: 900;
@@ -179,6 +193,38 @@ body {
 .kartu-tengah {
     overflow: hidden;
     max-height: 100px;
+}
+
+.kartu-informasi {
+    cursor: pointer;
+}
+
+.kosong-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 350px;
+}
+
+.kosong-item {
+    width: 250px;
+    height: 50px;
+    display: flex;
+}
+
+.kosong-wrap-artikel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 350px;
+}
+
+.kosong-item-artikel {
+    width: 500px;
+    height: 50px;
+    display: flex;
 }
 
 

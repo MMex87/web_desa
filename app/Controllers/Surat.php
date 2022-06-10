@@ -92,6 +92,7 @@ class Surat extends BaseController
         $alamat = $this->request->getVar('alamat');
 
         // dd($this->request->getVar());
+        $nama = strtoupper($nama);
 
         $this->suratModel->save([
             'nama_lengkap'      => $nama,
@@ -184,6 +185,7 @@ class Surat extends BaseController
         $tujuan = $this->request->getVar('maksud');
 
         // dd($this->request->getVar());
+        $nama = strtoupper($nama);
 
         $this->suratModel->save([
             'nama_lengkap'      => $nama,
@@ -251,6 +253,6 @@ class Surat extends BaseController
 
         // Close and output PDF document
         // This method has several options, check the source code documentation for more information.
-        $pdf->Output('Nomer_Pengambilan_' . $id . '.pdf', 'I');
+        $pdf->Output('Nomer_Pengambilan_' . $id . '.pdf', 'D');
     }
 }

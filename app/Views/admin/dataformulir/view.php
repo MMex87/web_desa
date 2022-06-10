@@ -3,8 +3,8 @@
 
 <?= $this->section('contentAdmin'); ?>
 
-<div class="continaer">
-    <div class="card border-success mb-3 mt-3" style="max-width: 100%; height: 450px;">
+<div class="container">
+    <div class="card border-success mb-3 mt-3" style="max-width: 100%; height: 520px;">
         <div class="card-header row" style="font-weight: bold; font-size: 18px;">
             <div class="col-8">
                 <?= ($keterangan == 'skck') ? 'Surat Keterangan Catatan Kepolisian' : 'Surat Keterangan' ?>
@@ -92,6 +92,10 @@
         <div class="col-2">
             <button type="button" class="btn btn-outline-primary"
                 onclick="top.location='/formulir/<?= ($keterangan == 'skck') ? 'skck' : 'suket' ?>'">kembali</button>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-outline-primary"
+                onclick="top.location='/formulir/download<?= ($keterangan == 'skck') ? 'skck' : 'suket' ?>?id=<?= $surat['id_surat'] ?>'">Download</button>
         </div>
     </div>
 </div>

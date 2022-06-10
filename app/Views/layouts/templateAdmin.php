@@ -21,7 +21,7 @@
     <!-- As a heading -->
     <nav class="navbar bg-light">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1"><img src="/img/header_right.png" height="50"></span>
+            <a class="navbar-brand mb-0 h1" href="/"><img src="/img/header_right.png" height="70"></a>
         </div>
     </nav>
 

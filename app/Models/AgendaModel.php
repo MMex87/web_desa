@@ -14,8 +14,13 @@ class AgendaModel extends Model
     public function getAgenda($id = false)
     {
         if ($id == false) {
-            return $this->orderBy('nama_agenda', 'asc')->findAll();
+            return $this->orderBy('nama_agenda', 'asc')->where('status', 1)->findAll();
         }
         return $this->where(['id_agenda' => $id])->first();
+    }
+
+    public function getTanggal()
+    {
+        return $this->findAll();
     }
 }

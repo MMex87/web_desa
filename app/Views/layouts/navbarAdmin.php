@@ -2,6 +2,17 @@
     <div class="">
         <ul class="nav flex-column menu">
             <li class="nav-item menu-item"
+                style="background-color: <?= ($navbar == 'home') ?  '#C7C7C7' : '#E0E0E0' ?>;">
+                <div class="row">
+                    <div class="col-1">
+                        <img src="/img/home.png">
+                    </div>
+                    <div class="col">
+                        <a class="nav-link" aria-current="page" href="/admin">Home</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item menu-item"
                 style="background-color: <?= ($navbar == 'artikel') ?  '#C7C7C7' : '#E0E0E0' ?>;">
                 <div class="row">
                     <div class="col-1">
@@ -46,17 +57,6 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item menu-item"
-                style="background-color: <?= ($navbar == 'data') ?  '#C7C7C7' : '#E0E0E0' ?>;">
-                <div class="row">
-                    <div class="col-1">
-                        <img src="/img/penduduk.png">
-                    </div>
-                    <div class="col">
-                        <a class="nav-link" href="/penduduk">Data Penduduk</a>
-                    </div>
-                </div>
-            </li>
         </ul>
     </div>
     <br><br><br><br><br>
@@ -69,7 +69,8 @@
                         <img src="/img/logout.png">
                     </div>
                     <div class="col">
-                        <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+                        <a class="nav-link" aria-current="page" href="/logout"
+                            onclick="return confirm('Apakah anda yakin ingin keluar?')">Logout</a>
                     </div>
                 </div>
             </li>

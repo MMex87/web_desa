@@ -44,7 +44,7 @@ $routes->get('/informasi/viewArtikel/(:num)', 'Informasi::viewArtikel/$1');
 
 // admin
 // Artikel
-$routes->get('/admin', 'Artikel::index');
+$routes->get('/admin', 'Admin::index');
 $routes->get('/artikel/edit', 'Artikel::edit');
 $routes->delete('/artikel/(:num)', 'Artikel::delete/$1');
 
