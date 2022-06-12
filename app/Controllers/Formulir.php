@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\SuratDuaModel;
 use App\Models\SuratModel;
 use CodeIgniter\I18n\Time;
 use TCPDF;
@@ -11,6 +12,7 @@ class Formulir extends BaseController
     public function __construct()
     {
         $this->suratModel = new SuratModel();
+        $this->suratDuaModel = new SuratDuaModel();
     }
     public function index()
     {
@@ -56,6 +58,40 @@ class Formulir extends BaseController
 
         return view('/admin/dataformulir/suket', $data);
     }
+    public function sukem()
+    {
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $surat = $this->suratDuaModel->cariSukem($keyword);
+        } else {
+            $surat = $this->suratDuaModel->cariSukem();
+        }
+        $data = [
+            'navbar'    => 'formulir',
+            'title'     => 'Data Formulir',
+            'key'       => $keyword,
+            'surat'    => $surat
+        ];
+
+        return view('/admin/dataformulir/sukem', $data);
+    }
+    public function sukel()
+    {
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $surat = $this->suratDuaModel->cariSukel($keyword);
+        } else {
+            $surat = $this->suratDuaModel->cariSukel();
+        }
+        $data = [
+            'navbar'    => 'formulir',
+            'title'     => 'Data Formulir',
+            'key'       => $keyword,
+            'surat'    => $surat
+        ];
+
+        return view('/admin/dataformulir/sukel', $data);
+    }
 
     public function viewsk($id)
     {
@@ -84,10 +120,40 @@ class Formulir extends BaseController
         ];
         return view('/admin/dataformulir/view', $data);
     }
+    public function viewsukem($id)
+    {
+        $surat = $this->suratDuaModel->viewSurat($id);
+        $this->suratDuaModel->where('id_surat', $id)->set(['status' => '0'])->update();
+        $data = [
+            'navbar'        => 'surat',
+            'title'         => 'view',
+            'keterangan'    => 'skm',
+            'surat'         => $surat
+        ];
+        return view('/admin/dataformulir/viewKedua', $data);
+    }
+    public function viewsukel($id)
+    {
+        $surat = $this->suratDuaModel->viewSurat($id);
+        $this->suratDuaModel->where('id_surat', $id)->set(['status' => '0'])->update();
+        $data = [
+            'navbar'        => 'surat',
+            'title'         => 'view',
+            'keterangan'    => 'skl',
+            'surat'         => $surat
+        ];
+        return view('/admin/dataformulir/viewKedua', $data);
+    }
 
     public function delete($id)
     {
         $this->suratModel->delete($id);
+        session()->setFlashdata('pesan', 'Data Berhasil DiHapus');
+        return redirect()->back();
+    }
+    public function deleteKedua($id)
+    {
+        $this->suratDuaModel->delete($id);
         session()->setFlashdata('pesan', 'Data Berhasil DiHapus');
         return redirect()->back();
     }

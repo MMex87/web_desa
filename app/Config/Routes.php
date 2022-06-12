@@ -61,7 +61,10 @@ $routes->get('/penduduk', 'DataPenduduk::index');
 $routes->get('/formulir', 'Formulir::index');
 $routes->get('/formulir/viewsk/(:num)', 'Formulir::viewsk/$1');
 $routes->get('/formulir/viewskck/(:num)', 'Formulir::viewskck/$1');
+$routes->get('/formulir/viewsukem/(:num)', 'Formulir::viewsukem/$1');
+$routes->get('/formulir/viewsukel/(:num)', 'Formulir::viewsukel/$1');
 $routes->delete('/formulir/(:num)', 'Formulir::delete/$1');
+$routes->delete('/formulir/kedua/(:num)', 'Formulir::deleteKedua/$1');
 
 /*
  * --------------------------------------------------------------------

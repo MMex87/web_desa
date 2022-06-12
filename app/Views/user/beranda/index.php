@@ -197,6 +197,12 @@
                             <div class="p-3 surat" onclick="top.location='/surat/skck'">2. Surat Keterangan Catatan
                                 Kepolisian</div>
                         </div>
+                        <div class="col-6">
+                            <div class="p-3 surat" onclick="top.location='/surat/sukem'">3. Surat Kematian</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-3 surat" onclick="top.location='/surat/sukel'">4. Surat Kelahiran</div>
+                        </div>
                     </div>
                 </div>
 

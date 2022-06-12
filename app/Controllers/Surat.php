@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\SuratDuaModel;
 use App\Models\SuratModel;
 use TCPDF;
 
@@ -10,6 +11,7 @@ class Surat extends BaseController
     public function __construct()
     {
         $this->suratModel = new SuratModel();
+        $this->suratDuaModel = new SuratDuaModel();
     }
     public function index()
     {
@@ -24,7 +26,7 @@ class Surat extends BaseController
     {
         $data = [
             'navbar' => 'surat',
-            'title' => 'surat',
+            'title' => 'SKCK',
             'validation' => \Config\Services::validation()
         ];
         return view('/user/surat/skck', $data);
@@ -33,10 +35,29 @@ class Surat extends BaseController
     {
         $data = [
             'navbar' => 'surat',
-            'title' => 'surat',
+            'title' => 'Surat Keterangan',
             'validation' => \Config\Services::validation()
         ];
         return view('/user/surat/suket', $data);
+    }
+
+    public function sukem()
+    {
+        $data = [
+            'navbar' => 'surat',
+            'title' => 'Surat Kematian',
+            'validation' => \Config\Services::validation()
+        ];
+        return view('/user/surat/sukem', $data);
+    }
+    public function sukel()
+    {
+        $data = [
+            'navbar' => 'surat',
+            'title' => 'Surat Kelahiran',
+            'validation' => \Config\Services::validation()
+        ];
+        return view('/user/surat/sukel', $data);
     }
 
     public function saveskck()
@@ -120,7 +141,7 @@ class Surat extends BaseController
                 $email_smtp->setFrom("kesimantengah123@gmail.com", "Kesimantengah");
                 $email_smtp->setTo($row['email']);
 
-                $email_smtp->setSubject("Ada SKCK Baru");
+                $email_smtp->setSubject("Ada surat SKCK Baru");
                 $email_smtp->setMessage("Surat baru dari formulir Surat Keterangan dengan Nomor Permohonan No." . $id_surat . ", silahkan cek web desa kesimantengah dengan click link berikut untuk mengunduh surat tersebut : 
                     http://kesimantengah.my.id/admin");
 
@@ -133,6 +154,7 @@ class Surat extends BaseController
         $data = [
             'navbar'    => 'surat',
             'title'     => 'surat',
+            'nama_surat'    => $id_surat->nama_surat,
             'id_surat'  => $id_surat->id_surat
         ];
         return view('/user/surat/confirm', $data);
@@ -249,9 +271,245 @@ class Surat extends BaseController
         $data = [
             'navbar'    => 'surat',
             'title'     => 'surat',
+            'nama_surat'    => $id_surat->nama_surat,
             'id_surat'  => $id_surat->id_surat
         ];
 
+        return view('/user/surat/confirm', $data);
+    }
+
+    public function savesukem()
+    {
+        // validation inputan
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required|alpha_space',
+                'errors' => [
+                    'alpha_space'    => 'Yang kamu masukan bukan huruf Alfabet',
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'gender' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'umur' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'hari' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'tanggal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'tempat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'sebab' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+
+        ])) {
+            return redirect()->back()->withInput();
+        }
+
+        // ambil data
+        $nama = $this->request->getVar('nama');
+        $gender = $this->request->getVar('gender');
+        $alamat = $this->request->getVar('alamat');
+        $umur = $this->request->getVar('umur');
+        $hari = $this->request->getVar('hari');
+        $tanggal = $this->request->getVar('tanggal');
+        $tempat = $this->request->getVar('tempat');
+        $sebab = $this->request->getVar('sebab');
+
+        // dd($this->request->getVar());
+        $nama = strtoupper($nama);
+
+        $sukses = $this->suratDuaModel->save([
+            'nama'      => $nama,
+            'nama_surat'        => 'Surat Kematian',
+            'jenis_kelamin'     => $gender,
+            'alamat'            => $alamat,
+            'umur'              => $umur,
+            'hari'              => $hari,
+            'tanggal'           => $tanggal,
+            'penyebab'          => $sebab,
+            'tempat'            => $tempat,
+            'status'            => '1'
+        ]);
+
+        $db = \Config\Database::connect();
+        $id_surat = $db->query('SELECT * FROM tbl_surat_kedua')->getLastRow();
+
+        // dd($id_surat);
+
+        $email_smtp = \Config\Services::email();
+
+        if ($sukses) {
+            $user = $db->query('SELECT * FROM users')->getResultArray();
+            foreach ($user as $row) {
+
+                $email_smtp->setFrom("kesimantengah123@gmail.com", "Kesimantengah");
+                $email_smtp->setTo($row['email']);
+
+                $email_smtp->setSubject("Ada Surat Kematian Baru");
+                $email_smtp->setMessage("Surat baru dari formulir Surat Kematian , silahkan cek web desa kesimantengah dengan click link berikut untuk melihat surat tersebut : 
+                    http://kesimantengah.my.id/admin");
+
+                $email_smtp->send();
+            }
+        }
+
+        $data = [
+            'navbar'        => 'surat',
+            'title'         => 'surat',
+            'nama_surat'    => $id_surat->nama_surat,
+            'id_surat'      => $id_surat->id_surat
+        ];
+        return view('/user/surat/confirm', $data);
+    }
+
+    public function savesukel()
+    {
+        // validation inputan
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required|alpha_space',
+                'errors' => [
+                    'alpha_space'    => 'Yang kamu masukan bukan huruf Alfabet',
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'ibu' => [
+                'rules' => 'required|alpha_space',
+                'errors' => [
+                    'alpha_space'    => 'Yang kamu masukan bukan huruf Alfabet',
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'ayah' => [
+                'rules' => 'required|alpha_space',
+                'errors' => [
+                    'alpha_space'    => 'Yang kamu masukan bukan huruf Alfabet',
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'gender' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'hari' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'tanggal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+            'tempat' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required'      => 'Kolom harus di isi'
+                ]
+            ],
+
+        ])) {
+            return redirect()->back()->withInput();
+        }
+
+        // ambil data
+        $nama = $this->request->getVar('nama');
+        $ibu = $this->request->getVar('ibu');
+        $ayah = $this->request->getVar('ayah');
+        $gender = $this->request->getVar('gender');
+        $alamat = $this->request->getVar('alamat');
+        $hari = $this->request->getVar('hari');
+        $tanggal = $this->request->getVar('tanggal');
+        $tempat = $this->request->getVar('tempat');
+
+        // dd($this->request->getVar());
+        $nama = strtoupper($nama);
+        $ibu = strtoupper($ibu);
+        $ayah = strtoupper($ayah);
+
+
+        $sukses = $this->suratDuaModel->save([
+            'nama'              => $nama,
+            'nama_surat'        => 'Surat Kelahiran',
+            'jenis_kelamin'     => $gender,
+            'alamat'            => $alamat,
+            'ayah'              => $ayah,
+            'ibu'               => $ibu,
+            'hari'              => $hari,
+            'tanggal'           => $tanggal,
+            'tempat'            => $tempat,
+            'status'            => '1'
+        ]);
+
+        $db = \Config\Database::connect();
+        $id_surat = $db->query('SELECT * FROM tbl_surat_kedua')->getLastRow();
+
+        // dd($id_surat);
+
+        $email_smtp = \Config\Services::email();
+
+        if ($sukses) {
+            $user = $db->query('SELECT * FROM users')->getResultArray();
+            foreach ($user as $row) {
+
+                $email_smtp->setFrom("kesimantengah123@gmail.com", "Kesimantengah");
+                $email_smtp->setTo($row['email']);
+
+                $email_smtp->setSubject("Ada Surat Kelahiran Baru");
+                $email_smtp->setMessage("Surat baru dari formulir Surat kelahiran , silahkan cek web desa kesimantengah dengan click link berikut untuk melihat surat tersebut : 
+                    http://kesimantengah.my.id/admin");
+
+                $email_smtp->send();
+            }
+        }
+
+        $data = [
+            'navbar'        => 'surat',
+            'title'         => 'surat',
+            'nama_surat'    => $id_surat->nama_surat,
+            'id_surat'      => $id_surat->id_surat
+        ];
         return view('/user/surat/confirm', $data);
     }
 

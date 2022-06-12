@@ -25,6 +25,12 @@
                 <div class="p-3 surat" style="margin-bottom: 20px">
                     <a href="/surat/skck">2. Surat Keterangan Catatan Kepolisian</a>
                 </div>
+                <div class="p-3 surat" style="margin-bottom: 20px">
+                    <a href="/surat/sukem">3. Surat Kematian</a>
+                </div>
+                <div class="p-3 surat" style="margin-bottom: 20px">
+                    <a href="/surat/sukel">4. Surat Kelahiran</a>
+                </div>
             </div>
         </div>
     </div>

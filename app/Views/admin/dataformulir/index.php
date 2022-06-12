@@ -43,6 +43,42 @@
             </button>
         </div>
     </div>
+    <div class="d-flex justify-content-center mt-2">
+        <div class="position-relative">
+            <button type="button" class="btn btn-outline-primary mb-3" onclick="top.location='/formulir/sukem'">Daftar
+                Formulir Surat Kematian
+                <?php
+                $db = \Config\Database::connect();
+                $notifSKM = $db->query('SELECT COUNT(nama_surat) as hitung
+                    FROM tbl_surat_kedua
+                    WHERE nama_surat = "Surat Kematian" AND status = 1')->getRow();
+                ?>
+                <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger <?= ($notifSKM->hitung == 0) ? 'visually-hidden' : '' ?>">
+                    <?= $notifSKM->hitung ?>
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-2">
+        <div class="position-relative">
+            <button type="button" class="btn btn-outline-primary mb-3" onclick="top.location='/formulir/sukel'">Daftar
+                Formulir Surat Kelahiran
+                <?php
+                $db = \Config\Database::connect();
+                $notifSKL = $db->query('SELECT COUNT(nama_surat) as hitung
+                    FROM tbl_surat_kedua
+                    WHERE nama_surat = "Surat Kelahiran" AND status = 1')->getRow();
+                ?>
+                <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger <?= ($notifSKL->hitung == 0) ? 'visually-hidden' : '' ?>">
+                    <?= $notifSKL->hitung ?>
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+        </div>
+    </div>
 </div>
 
 <?= $this->endSection(); ?>

@@ -68,7 +68,8 @@
                     <option value="Wirausaha" <?= (old('work') == 'Wirausaha') ? 'selected' : '' ?>>Wirausaha</option>
                     <option value="Pedagang" <?= (old('work') == 'Pedagang') ? 'selected' : '' ?>>Pedagang</option>
                     <option value="Buruh" <?= (old('work') == 'Buruh') ? 'selected' : '' ?>>Buruh</option>
-                    <option value="Buruh" <?= (old('work') == 'Buruh') ? 'selected' : '' ?>>Pelajar Mahasiswa</option>
+                    <option value="Pelajar Mahasiswa" <?= (old('work') == 'Pelajar Mahasiswa') ? 'selected' : '' ?>>
+                        Pelajar Mahasiswa</option>
                     <option value="Pekerja Lepas/Freelancer"
                         <?= (old('work') == 'Pekerja Lepas/Freelancer') ? 'selected' : '' ?>>Pekerja Lepas/Freelancer
                     </option>
