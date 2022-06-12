@@ -97,8 +97,8 @@
                                 </div>
                                 <div class="edit float-start">
                                     <button type="button" class="btn ubah" data-id="<?= $row['id_artikel']; ?>"
-                                        data-judul="<?= $row['judul_artikel']; ?>" data-gambar="<?= $row['gambar']; ?>"
-                                        data-artikel="<?= $row['artikel']; ?>" data-bs-toggle="modal"
+                                        data-judul='<?= $row['judul_artikel']; ?>' data-gambar='<?= $row['gambar']; ?>'
+                                        data-artikel='<?= $row['artikel']; ?>' data-bs-toggle="modal"
                                         data-bs-target="#editData" data-bs-toggle="tooltip" data-bs-placement="top"
                                         title="Edit">
                                         <img src="/img/edit.png">

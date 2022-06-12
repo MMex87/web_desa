@@ -10,6 +10,8 @@ class Admin extends BaseController
 
         $notif = $db->query('SELECT COUNT(nama_lengkap) as hitung FROM tbl_surat WHERE status = 1;')->getRow();
 
+        // data view
+
         $data = [
             'title'     => 'Home',
             'navbar'    => 'home',

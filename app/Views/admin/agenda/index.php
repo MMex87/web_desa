@@ -69,11 +69,11 @@
                     <?php foreach ($agenda as $row) : ?>
                     <div class="kartu mb-3" style="background: #EBEBEB;">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-10">
                                 <div class="judul_desc">
-                                    <h4>
+                                    <h5 style="font-weight: bold;">
                                         <?= $row['nama_agenda']; ?>
-                                    </h4>
+                                    </h5>
                                 </div>
                                 <div class="desc">
                                     <h6>
@@ -82,11 +82,11 @@
                                 </div>
                                 <div class="tanggal_desc">
                                     <h6>
-                                        Tanggal : <?= $row['tanggal_mulai']; ?> / <?= $row['tanggal_selesai']; ?>
+                                        Tanggal : <?= date('d-M-Y', strtotime($row['tanggal_selesai'])); ?>
                                     </h6>
                                 </div>
                             </div>
-                            <div class="col mt-4">
+                            <div class="col mt-2">
                                 <div class="delete float-end">
                                     <form class="d-inline" action="agenda/<?= $row['id_agenda']; ?>" method="post">
                                         <?= csrf_field(); ?>
@@ -99,7 +99,6 @@
                                 <div class="edit float-end">
                                     <button type="button" class="btn ubah" data-id="<?= $row['id_agenda']; ?>"
                                         data-nama_ag="<?= $row['nama_agenda']; ?>"
-                                        data-tgl_m="<?= $row['tanggal_mulai']; ?>"
                                         data-tgl_s="<?= $row['tanggal_selesai']; ?>"
                                         data-deskripsi="<?= $row['deskripsi_agenda']; ?>" data-bs-toggle="modal"
                                         data-bs-target="#editData">
@@ -135,11 +134,6 @@
                         <input type="text" class="form-control" name="namaAg" id="floatingInput"
                             placeholder="Tulis namaAg agenda" value="<?= old('namaAg') ?>">
                         <label for="floatingInput">Nama Agenda</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="date" class="form-control" name="tglM" id="floatingInput"
-                            placeholder="Tulis tglM tmulai" value="<?= old('tglM') ?>">
-                        <label for="floatingInput">Tanggal Mulai</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="date" class="form-control" name="tglS" id="floatingInput"
@@ -179,11 +173,6 @@
                         <input type="text" class="form-control namaAg" name="namaAg" id="floatingInput"
                             placeholder="Tulis Nama Agenda" value="<?= old('namaAg') ?>">
                         <label for="floatingInput">Nama Agenda</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="date" class="form-control tglM" name="tglM" id="floatingInput"
-                            value="<?= old('tglM') ?>">
-                        <label for="floatingInput">Tanggal Mulai</label>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="date" class="form-control tglS" name="tglS" id="floatingInput"

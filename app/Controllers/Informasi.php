@@ -37,7 +37,7 @@ class Informasi extends BaseController
         if ($keyAgenda) {
             $agenda = $db->query(('SELECT * FROM tbl_agenda WHERE nama_agenda LIKE "%' . $keyAgenda . '%" AND statyus = 1'))->getResultArray();
         } else {
-            $agenda = $this->agendaModel->getAgenda();
+            $agenda = $this->agendaModel->getTerdekat();
         }
 
 
@@ -51,7 +51,7 @@ class Informasi extends BaseController
         $i = 0;
         if ($isiArtikel) {
             while ($i < $isiArtikel) {
-                $waktu[$i] = Time::parse($artikelWaktu[$i]['created_at'], 'Asia/Jakarta');
+                $waktu[$i] = Time::parse($artikelWaktu[$i]['created_at']);
                 // d($waktu);
                 $i++;
             }

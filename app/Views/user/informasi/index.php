@@ -31,10 +31,40 @@
                     <?php if ($agenda) : ?>
                     <div class="container-fluid" style="overflow: auto; max-height:450px;">
                         <?php
-
                             foreach ($agenda as $rows) : ?>
                         <div id="tanggal-agenda" class="ms-2">
-                            <?= $rows['tanggal_mulai'] . ' - ' . $rows['tanggal_selesai']; ?>
+                            <?php
+                                    $date = $rows['tanggal_selesai'];
+                                    $datetime = DateTime::createFromFormat('Y-m-d', $date);
+                                    $hari = $datetime->format('l');
+                                    switch ($hari) {
+                                        case 'Sunday':
+                                            $hari = 'Minggu';
+                                            break;
+                                        case 'Monday':
+                                            $hari = 'Senin';
+                                            break;
+                                        case 'Tuesday':
+                                            $hari = 'Selasa';
+                                            break;
+                                        case 'Wednesday':
+                                            $hari = 'Rabu';
+                                            break;
+                                        case 'Thursday':
+                                            $hari = 'Kamis';
+                                            break;
+                                        case 'Friday':
+                                            $hari = 'Jum\'at';
+                                            break;
+                                        case 'Saturday':
+                                            $hari = 'Sabtu';
+                                            break;
+                                        default:
+                                            $hari = 'Tidak ada';
+                                            break;
+                                    }
+                                    echo $hari . ", " . date('d-m-Y', strtotime($date));
+                                    ?>
                         </div>
                         <div id="card-agenda">
                             <strong><?= $rows['nama_agenda']; ?></strong>
@@ -108,7 +138,6 @@
 
 
         <!-- <div style="height: 1000px;"> -->
-
         <!-- </div> -->
 
     </div>
@@ -121,7 +150,7 @@ $(document).ready(function() {
         const lebar = $(window).width();
         if (lebar < 768)
             $('.kartu').css({
-                'margin-bottom': '200px'
+                'margin-bottom': '220px'
             })
         else
             $('.kartu').css({
@@ -130,7 +159,7 @@ $(document).ready(function() {
     })
     if (lebar < 768)
         $('.kartu').css({
-            'margin-bottom': '200px'
+            'margin-bottom': '220px'
         })
     else
         $('.kartu').css({

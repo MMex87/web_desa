@@ -6,18 +6,34 @@
     <div style="width: 100%">
         <div class="sampul">
             <div class="sampulLogo">
-                <img src="/img/logo_1.png" width="150" height="150">
+                <img src="img/bg-detail.png" class="img-fluid">
+            </div>
+            <div class="logos">
+                <img src="img/logo_1.png" width="20%">
             </div>
             <div class="text1">
                 <p>DESA KESIMANTENGAH</p>
             </div>
             <div class="text2">
-                <p>Kesimantengah merupakan Desa dengan 5 Dusun diantaranya Kesiman, Jati, Galangloh, Karangan, dan
-                    Ngemplak. Desa ini terletak di Kecamatan Pacet, Kabupaten Mojokerto.</p>
+                <p>
+                    Kesimantengah merupakan Desa dengan 5 Dusun diantaranya Kesiman,
+                    Jati, Galangloh, Karangan, dan Ngemplak. Desa ini terletak di
+                    Kecamatan Pacet, Kabupaten Mojokerto.
+                </p>
             </div>
-            <div class="button1">
-                <button type="button" class="btn btn-secondary">Lokasi</button>
-                <button type="button" class="btn btn-secondary">Detail</button>
+            <div class="lokasi">
+                <button class="btn btn-secondary dropdown-toggle lk-btn" type="button" id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Lokasi
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item active" href="#">Alamat</a></li>
+                    <li><a class="dropdown-item" href="#">Kecamatan</a></li>
+                    <li><a class="dropdown-item" href="#">Kabupaten</a></li>
+                    <li><a class="dropdown-item" href="#">Provinsi</a></li>
+                    <li><a class="dropdown-item" href="#">Kode Pos</a></li>
+                    <li><a class="dropdown-item" href="#">Negara</a></li>
+                </ul>
             </div>
         </div>
 
@@ -95,21 +111,73 @@
         <div>
             <div class="container">
                 <div class="row justify-content-evenly">
+                    <?php
+                    function getHari($hari)
+                    {
+                        switch ($hari) {
+                            case 'Sunday':
+                                $hari = 'Minggu';
+                                break;
+                            case 'Monday':
+                                $hari = 'Senin';
+                                break;
+                            case 'Tuesday':
+                                $hari = 'Selasa';
+                                break;
+                            case 'Wednesday':
+                                $hari = 'Rabu';
+                                break;
+                            case 'Thursday':
+                                $hari = 'Kamis';
+                                break;
+                            case 'Friday':
+                                $hari = 'Jum\'at';
+                                break;
+                            case 'Saturday':
+                                $hari = 'Sabtu';
+                                break;
+                            default:
+                                $hari = 'Tidak ada';
+                                break;
+                        }
+                        return $hari;
+                    };
+                    if (isset($agenda[0])) :
+                        $date1 = $agenda[0]['tanggal_selesai'];
+                        $datetime1 = DateTime::createFromFormat('Y-m-d', $date1);
+                        $hari1 = $datetime1->format('l');
+                        $hari1 = getHari($hari1);
+                    endif;
+                    if (isset($agenda[1])) :
+                        $date2 = $agenda[1]['tanggal_selesai'];
+                        $datetime2 = DateTime::createFromFormat('Y-m-d', $date2);
+                        $hari2 = $datetime2->format('l');
+                    endif;
+
+                    ?>
                     <div class="col-6">
-                        <h5>Jumat, 12 Mei 2020</h5>
+                        <h5>
+                            <?= (isset($agenda[0]) ? $hari1 . ', ' . date('d-m-Y', strtotime($agenda[0]['tanggal_selesai'])) : '') ?>
+                        </h5>
                     </div>
                     <div class="col-6">
-                        <h5>Rabu, 19 Mei 2020</h5>
+                        <h5>
+                            <?= (isset($agenda[1]) ? $hari1 . ', ' . date('d-m-Y', strtotime($agenda[1]['tanggal_selesai'])) : '') ?>
+                        </h5>
                     </div>
 
                     <div class="row justify-content-evenly">
-                        <div class="col-5" style="background-color: #ebebeb; border-radius: 10px;">
-                            <h2 class="agenda">Kerja Bakti</h2>
-                            <h5 class="agenda2">Dihimbau untuk para warga membawa peralatan kerja bakti</h5>
+                        <div class="col-5" style="background-color: #ebebeb; border-radius: 10px; overflow-x: auto;">
+                            <h2 class="agenda">
+                                <?= (isset($agenda[0]) ? $agenda[0]['nama_agenda'] : 'Tidak ada Agenda'); ?></h2>
+                            <h5 class="agenda2">
+                                <?= (isset($agenda[0]) ? $agenda[0]['nama_agenda'] : ''); ?></h5>
                         </div>
                         <div class="col-5" style="background-color: #ebebeb; border-radius: 10px;">
-                            <h2 class="agenda">Kerja Bakti 2</h2>
-                            <h5 class="agenda2">Dihimbau untuk para warga membawa peralatan kerja bakti</h5>
+                            <h2 class="agenda">
+                                <?= (isset($agenda[1]) ? $agenda[1]['nama_agenda'] : 'Tidak ada Agenda'); ?></h2>
+                            <h5 class="agenda2">
+                                <?= (isset($agenda[1]) ? $agenda[1]['nama_agenda'] : ''); ?></h5>
                         </div>
                     </div>
                 </div>
@@ -123,29 +191,12 @@
                 <div class="container">
                     <div class="row g-2">
                         <div class="col-6">
-                            <div class="p-3 surat">1. Surat Keterangan Domisili</div>
+                            <div class="p-3 surat" onclick="top.location='/surat/suket'">1. Surat Keterangan</div>
                         </div>
                         <div class="col-6">
-                            <div class="p-3 surat">2. Surat Keterangan Melahirkan</div>
+                            <div class="p-3 surat" onclick="top.location='/surat/skck'">2. Surat Keterangan Catatan
+                                Kepolisian</div>
                         </div>
-                        <div class="col-6">
-                            <div class="p-3 surat">3. Surat Keterangan Kematian</div>
-                        </div>
-                        <div class="col-6">
-                            <div class="p-3 surat">4. Surat Keterangan Tidak Mampu</div>
-                        </div>
-                        <div class="col-6">
-                            <div class="p-3 surat">5. Surat Keterangan Status</div>
-                        </div>
-                        <div class="col-6">
-                            <div class="p-3 surat">Lainya..</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row cardlayout">
-                    <div class="headcard">
-                        <span>Perkiraan Cuaca</span>
                     </div>
                 </div>
 
@@ -154,20 +205,104 @@
                         <span>Peta Desa</span>
                     </div>
                 </div>
-
-
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
-
-
-            </div>
-
-
-            <div style="height: 300px;">
-
+                <div style="height: 300px;"></div>
             </div>
         </div>
+    </div>
+</div>
 
-        <?= $this->endSection(); ?>
+
+<script>
+$(document).ready(function() {
+    const lebar = $(window).width();
+    $(window).resize(function() {
+        const lebar = $(window).width();
+        if (lebar < 768) {
+            $('.text1').css({
+                'margin-top': '5px',
+                'font-size': '9px'
+            })
+            $('.text2').css({
+                'font-size': '7px',
+                'margin-left': '10px',
+                'margin-right': '10px',
+                'margin-top': '-15px'
+            })
+            $('.dropdown-menu').css({
+                'font-size': '8px',
+            })
+            $('.lk-btn').css({
+                'padding': '1px',
+                'font-size': '8px',
+                'width': '45px',
+                'height': '20px',
+                'margin-left': '43%',
+                'margin-top': '-35px'
+            })
+            $('.agenda').css({
+                'font-size': '18px',
+            })
+        } else {
+            $('.text1').css({
+                'font-size': '25px',
+                'margin-top': '20px'
+            })
+            $('.text2').css({
+                'font-size': '18px',
+                'margin-left': '20px',
+                'margin-right': '20px'
+            })
+            $('.lk-btn').css({
+                'margin-left': '46%',
+            })
+            $('.agenda').css({
+                'font-size': '23px',
+            })
+        }
+    })
+    if (lebar < 768) {
+        $('.text1').css({
+            'margin-top': '5px',
+            'font-size': '9px'
+        })
+        $('.text2').css({
+            'font-size': '7px',
+            'margin-left': '10px',
+            'margin-right': '10px',
+            'margin-top': '-15px',
+        })
+        $('.dropdown-menu').css({
+            'font-size': '8px'
+        })
+        $('.lk-btn').css({
+            'padding': '1px',
+            'font-size': '8px',
+            'width': '45px',
+            'margin-left': '43%',
+            'height': '20px',
+            'margin-top': '-35px'
+        })
+        $('.agenda').css({
+            'font-size': '18px',
+        })
+    } else {
+        $('.text1').css({
+            'margin-top': '20px',
+            'font-size': '25px'
+        })
+        $('.text2').css({
+            'font-size': '18px',
+            'margin-left': '20px',
+            'margin-right': '20px'
+        })
+        $('.lk-btn').css({
+            'margin-left': '46%',
+        })
+        $('.agenda').css({
+            'font-size': '23px',
+        })
+    }
+})
+</script>
+
+<?= $this->endSection(); ?>

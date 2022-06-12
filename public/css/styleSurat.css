@@ -1,5 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
+  color: #263238;
 }
 
 
@@ -9,9 +10,46 @@ body {
   background-position: center;
 }
 
-p {
-  color: #263238;
+
+
+.sampul {
+  width: 100%;
+  height: min-content;
+  position: static;
+  margin-bottom: 100px;
+  box-sizing: border-box;
 }
+
+.sampulLogo {
+  position: static;
+}
+
+.logos {
+  position: static;
+  margin-top: -32%;
+  margin-left: 45%;
+}
+
+.text1 {
+  position: static;
+  text-align: center;
+  font-weight: bold;
+}
+
+.text2 {
+  position: static;
+  font-weight: 700;
+  text-align: center;
+}
+
+.lokasi {
+  position: static;
+}
+
+
+
+
+
 
 /* input formulir */
 .title {
@@ -55,19 +93,15 @@ h2 {
 
 
 
-/* tentang desa */
-.logos {
-  float: left;
-  margin-top: 20%;
+/* beranda */
+.cardlayout {
+  margin-top: 50px;
 }
 
-.textlist {
-  background-color: #C4C4C4;
-  width: 80%;
-  margin: auto;
-  text-align: center;
-  font-size: 25px;
-  font-weight: bolder;
+
+#slideArticle {
+  height: 200px;
+  width: 1150px;
 }
 
 .cardlayout .headcard {
@@ -86,6 +120,129 @@ h2 {
   font-weight: 800;
 }
 
+.agenda {
+  padding-top: 5px;
+  padding-left: 5px;
+  font-weight: 800;
+  font-size: 27px;
+}
+
+.agenda2 {
+  padding: 5px;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.surat {
+  background-color: #ebebeb;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.login {
+  background-color: #ebebeb;
+  width: 50%;
+  height: 50%;
+  margin-top: 5%;
+  text-align: center;
+  justify-content: center;
+  border: #263238 2px solid;
+}
+
+.img {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.header1 {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.header2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.button {
+  height: 50px;
+  width: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+
+#cardlayout {
+  margin-top: 50px;
+}
+
+
+#slideArticle {
+  height: 200px;
+}
+
+#cardlayout .headcard {
+  height: 28px;
+  width: 150px;
+  background-color: #C9E51A;
+  border-radius: 40px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#cardlayout .headcard span {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+/* Informasi */
+#content-agenda {
+  border-radius: 15px;
+  width: 100%;
+  height: 550px;
+  background-color: #EBEBEB;
+  padding: 10px;
+}
+
+
+#card-agenda {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 120px;
+  background-color: #C4C4C4;
+  border-radius: 20px;
+}
+
+.artikel-list {
+  height: 100px;
+  width: 100%;
+}
+
+
+/* tentang */
+
+.textlist {
+  background-color: #C4C4C4;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bolder;
+  border-radius: 50px;
+}
+
+.tombol {
+  cursor: pointer;
+}
+
 
 /* surat */
 
@@ -97,4 +254,18 @@ h2 {
 .surat a:link {
   color: black;
   text-decoration: none;
+}
+
+
+/* sahare artikel */
+
+.warp-share-parent {
+  width: 100%;
+  height: 100px;
+}
+
+.warp-share {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

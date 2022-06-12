@@ -94,7 +94,7 @@ class Surat extends BaseController
         // dd($this->request->getVar());
         $nama = strtoupper($nama);
 
-        $this->suratModel->save([
+        $sukses = $this->suratModel->save([
             'nama_lengkap'      => $nama,
             'nama_surat'        => 'Surat Keterangan Catatan Kepolisian',
             'nik'               => $nik,
@@ -110,6 +110,26 @@ class Surat extends BaseController
 
         $db = \Config\Database::connect();
         $id_surat = $db->query('SELECT * FROM tbl_surat')->getLastRow();
+
+        $email_smtp = \Config\Services::email();
+
+        if ($sukses) {
+            $user = $db->query('SELECT * FROM users')->getResultArray();
+            foreach ($user as $row) {
+
+                $email_smtp->setFrom("kesimantengah123@gmail.com", "Kesimantengah");
+                $email_smtp->setTo($row['email']);
+
+                $email_smtp->setSubject("Ada SKCK Baru");
+                $email_smtp->setMessage("Surat baru dari formulir Surat Keterangan dengan Nomor Permohonan No." . $id_surat . ", silahkan cek web desa kesimantengah dengan click link berikut untuk mengunduh surat tersebut : 
+                    http://kesimantengah.my.id/admin");
+
+                $email_smtp->send();
+            }
+        }
+
+
+
         $data = [
             'navbar'    => 'surat',
             'title'     => 'surat',
@@ -184,10 +204,9 @@ class Surat extends BaseController
         $maksud = $this->request->getVar('tujuan');
         $tujuan = $this->request->getVar('maksud');
 
-        // dd($this->request->getVar());
         $nama = strtoupper($nama);
 
-        $this->suratModel->save([
+        $sukses = $this->suratModel->save([
             'nama_lengkap'      => $nama,
             'nama_surat'        => 'Surat Keterangan',
             'nik'               => $nik,
@@ -203,13 +222,36 @@ class Surat extends BaseController
             'status'            => '1'
         ]);
 
+
         $db = \Config\Database::connect();
         $id_surat = $db->query('SELECT * FROM tbl_surat')->getLastRow();
+
+        // email
+        $email_smtp = \Config\Services::email();
+
+        if ($sukses) {
+            $user = $db->query('SELECT * FROM users')->getResultArray();
+            foreach ($user as $row) {
+
+                $email_smtp->setFrom("kesimantengah123@gmail.com", "Kesimantengah");
+                $email_smtp->setTo($row['email']);
+
+                $email_smtp->setSubject("Ada Surat Keterangan Baru");
+                $email_smtp->setMessage("Surat baru dari formulir Surat Keterangan dengan Nomor Permohonan No." . $id_surat . ", silahkan cek web desa kesimantengah dengan click link berikut untuk mengunduh surat tersebut : 
+                    http://kesimantengah.my.id/admin");
+
+                $email_smtp->send();
+            }
+        }
+
+
+
         $data = [
             'navbar'    => 'surat',
             'title'     => 'surat',
             'id_surat'  => $id_surat->id_surat
         ];
+
         return view('/user/surat/confirm', $data);
     }
 

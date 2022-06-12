@@ -1,86 +1,148 @@
-<?= $this->extend('layouts/template1'); ?>
+<?= $this->extend('layouts/template2'); ?>
 
-<?= $this->section('content'); ?>
+<?= $this->section('content2'); ?>
 
 <div class="container">
-    <div class="tentang-header mt-5">
-        <div class="tentang-judul d-flex justify-content-center">
-            <h2>Sejarah Desa Kasiman Tengah</h2>
-        </div>
-        <div class="tentang-foto d-flex justify-content-center">
-            <img src="/img/user_null.png" width="150" height="150">
-        </div>
-    </div>
-    <div class="container-fluid mt-4">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos qui labore facere tempore
-            exercitationem iste incidunt accusantium aut? Laudantium id ex pariatur inventore nisi sequi quod, nihil
-            porro molestias odit quaerat eligendi voluptate doloremque fugit necessitatibus voluptatem facilis expedita
-            dolorem ducimus accusantium beatae! Harum ducimus similique asperiores odit, illo vero debitis repellendus
-            enim, nisi amet sunt. Hic voluptates, fugit cumque ipsa, ducimus temporibus modi unde eius, doloremque
-            expedita tempora. Quam, repudiandae nihil quaerat modi iusto dolorum commodi rem molestias quas explicabo
-            totam aspernatur itaque eos cumque numquam adipisci eius voluptate excepturi voluptatum, illo laudantium?
-            Quidem debitis ipsa tenetur a illum?
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos qui labore facere tempore
-            exercitationem iste incidunt accusantium aut? Laudantium id ex pariatur inventore nisi sequi quod, nihil
-            porro molestias odit quaerat eligendi voluptate doloremque fugit necessitatibus voluptatem facilis expedita
-            dolorem ducimus accusantium beatae! Harum ducimus similique asperiores odit, illo vero debitis repellendus
-            enim, nisi amet sunt. Hic voluptates, fugit cumque ipsa, ducimus temporibus modi unde eius, doloremque
-            expedita tempora. Quam, repudiandae nihil quaerat modi iusto dolorum commodi rem molestias quas explicabo
-            totam aspernatur itaque eos cumque numquam adipisci eius voluptate excepturi voluptatum, illo laudantium?
-            Quidem debitis ipsa tenetur a illum?
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos qui labore facere tempore
-            exercitationem iste incidunt accusantium aut? Laudantium id ex pariatur inventore nisi sequi quod, nihil
-            porro molestias odit quaerat eligendi voluptate doloremque fugit necessitatibus voluptatem facilis expedita
-            dolorem ducimus accusantium beatae! Harum ducimus similique asperiores odit, illo vero debitis repellendus
-            enim, nisi amet sunt. Hic voluptates, fugit cumque ipsa, ducimus temporibus modi unde eius, doloremque
-            expedita tempora. Quam, repudiandae nihil quaerat modi iusto dolorum commodi rem molestias quas explicabo
-            totam aspernatur itaque eos cumque numquam adipisci eius voluptate excepturi voluptatum, illo laudantium?
-            Quidem debitis ipsa tenetur a illum?
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos qui labore facere tempore
-            exercitationem iste incidunt accusantium aut? Laudantium id ex pariatur inventore nisi sequi quod, nihil
-            porro molestias odit quaerat eligendi voluptate doloremque fugit necessitatibus voluptatem facilis expedita
-            dolorem ducimus accusantium beatae! Harum ducimus similique asperiores odit, illo vero debitis repellendus
-            enim, nisi amet sunt. Hic voluptates, fugit cumque ipsa, ducimus temporibus modi unde eius, doloremque
-            expedita tempora. Quam, repudiandae nihil quaerat modi iusto dolorum commodi rem molestias quas explicabo
-            totam aspernatur itaque eos cumque numquam adipisci eius voluptate excepturi voluptatum, illo laudantium?
-            Quidem debitis ipsa tenetur a illum?
-        </p>
-    </div>
-
-    <div class="tentang-artikel">
-        <div class="row">
-            <div class="col-3">
-                <h4>Share Artikel Ini Melalui : </h4>
+    <div style="width: 100%">
+        <div class="sampul">
+            <div class="sampulLogo">
+                <img src="img/bg-detail.png" class="img-fluid">
             </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-success mb-4" style="width: 250px; height: 60px;"><img
-                        src="/img/logos_whatsapp.png" class="me-2">
-                    Whatsapp</button><br>
-                <button type="button" class="btn"
-                    style="color: #fff; width: 250px; height: 60px; background-color: #91A1F4;"><img src="/img/fb.png"
-                        class="me-2">
-                    Facebook</button>
+            <div class="logos">
+                <img src="img/logo_1.png" width="20%">
             </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-danger mb-4" style="width: 250px; height: 60px;"><img
-                        src="/img/ig.png" class="me-2">
-                    Instagram</button><br>
-                <button type="button" class="btn "
-                    style="color: #fff; width: 250px; height: 60px; background-color: #91A1F4;"><img src="/img/twt.png"
-                        class="me-2">
-                    Twiter</button>
+            <div class="text1">
+                <p>DESA KESIMANTENGAH</p>
+            </div>
+            <div class="text2">
+                <p>
+                    Kesimantengah merupakan Desa dengan 5 Dusun diantaranya Kesiman,
+                    Jati, Galangloh, Karangan, dan Ngemplak. Desa ini terletak di
+                    Kecamatan Pacet, Kabupaten Mojokerto.
+                </p>
+            </div>
+            <div class="lokasi">
+                <button class="btn btn-secondary dropdown-toggle lk-btn" type="button" id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Lokasi
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item active" href="#">Alamat</a></li>
+                    <li><a class="dropdown-item" href="#">Kecamatan</a></li>
+                    <li><a class="dropdown-item" href="#">Kabupaten</a></li>
+                    <li><a class="dropdown-item" href="#">Provinsi</a></li>
+                    <li><a class="dropdown-item" href="#">Kode Pos</a></li>
+                    <li><a class="dropdown-item" href="#">Negara</a></li>
+                </ul>
             </div>
         </div>
     </div>
-
-    <div style="height: 500px;"></div>
 </div>
+</div>
+<!-- akhir bg land -->
+
+<!-- awal list artikel -->
+<div class="container-fluid">
+    <div class="textlist">
+        <p class="tombol" onclick="top.location='/tentang/umum'">Gambaran Umum Desa</p>
+    </div>
+    <div class="textlist">
+        <p class="tombol" onclick="top.location='/tentang/geografi'">Geografi dan Demografi</p>
+    </div>
+    <div class="textlist">
+        <p class="tombol" onclick="top.location='/tentang/pemerintahan'">Pemerintahan Desa</p>
+    </div>
+</div>
+<!-- akhir list artikel -->
+
+<script>
+$(document).ready(function() {
+    const lebar = $(window).width();
+    $(window).resize(function() {
+        const lebar = $(window).width();
+        if (lebar < 768) {
+            $('.text1').css({
+                'margin-top': '5px',
+                'font-size': '9px'
+            })
+            $('.text2').css({
+                'font-size': '7px',
+                'margin-left': '10px',
+                'margin-right': '10px',
+                'margin-top': '-15px'
+            })
+            $('.dropdown-menu').css({
+                'font-size': '8px',
+            })
+            $('.lk-btn').css({
+                'padding': '1px',
+                'font-size': '8px',
+                'width': '45px',
+                'height': '20px',
+                'margin-left': '43%',
+                'margin-top': '-30px'
+            })
+        } else {
+            $('.text1').css({
+                'font-size': '25px',
+                'margin-top': '20px'
+            })
+            $('.text2').css({
+                'font-size': '18px',
+                'margin-left': '20px',
+                'margin-right': '20px'
+            })
+            $('.lk-btn').css({
+                'margin-left': '46%',
+                'font-size': '16px',
+                'width': '100px',
+                'height': '40px',
+            })
+        }
+    })
+    if (lebar < 768) {
+        $('.text1').css({
+            'margin-top': '5px',
+            'font-size': '9px'
+        })
+        $('.text2').css({
+            'font-size': '7px',
+            'margin-left': '10px',
+            'margin-right': '10px',
+            'margin-top': '-15px',
+        })
+        $('.dropdown-menu').css({
+            'font-size': '8px'
+        })
+        $('.lk-btn').css({
+            'padding': '1px',
+            'font-size': '8px',
+            'width': '45px',
+            'margin-left': '43%',
+            'height': '20px',
+            'margin-top': '-30px'
+        })
+        $('.textlist').css({
+            'font-size': '9px'
+        })
+    } else {
+        $('.text1').css({
+            'margin-top': '20px',
+            'font-size': '25px'
+        })
+        $('.text2').css({
+            'font-size': '18px',
+            'margin-left': '20px',
+            'margin-right': '20px'
+        })
+        $('.lk-btn').css({
+            'margin-left': '46%',
+            'font-size': '16px',
+            'width': '100px',
+            'height': '40px',
+        })
+    }
+})
+</script>
 
 <?= $this->endSection(); ?>
