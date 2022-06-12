@@ -135,11 +135,6 @@
                 <?php endif; ?>
             </div>
         </div>
-
-
-        <!-- <div style="height: 1000px;"> -->
-        <!-- </div> -->
-
     </div>
 </div>
 

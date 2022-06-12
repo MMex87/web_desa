@@ -885,7 +885,8 @@
             tab-stops: 70.9pt 99.25pt;
           ">
             <span style="font-family: 'Tahoma', sans-serif">Sumber: Laporan Kependudukan Desa Kesimantengah Tahun 2021
-                <o:p></o:p></span>
+                <o:p></o:p>
+            </span>
         </p>
         <p class="MsoNoSpacing" style="
             line-height: 130%;
@@ -922,7 +923,7 @@
             text-align: center;
           ">
             <span style="font-family: 'Tahoma', sans-serif">Data Perkembangan Penduduk Desa Kesimantengah<o:p></o:p>
-                </span>
+            </span>
         </p>
         <p align="center" class="MsoNoSpacing" style="
             margin-left: 99.25pt;
@@ -974,7 +975,7 @@
                 " width="365">
                         <p align="center" class="MsoNoSpacing" style="text-align: center">
                             <b><span style="font-family: 'Tahoma', sans-serif">Data Perkembangan Penduduk<o:p></o:p>
-                                    </span></b>
+                                </span></b>
                         </p>
                     </td>
                 </tr>
@@ -2778,7 +2779,8 @@
             tab-stops: 70.9pt 99.25pt;
           ">
             <span style="font-family: 'Tahoma', sans-serif">Sumber: Laporan Kependudukan Desa Kesimantengah Tahun 2021
-                <o:p></o:p></span>
+                <o:p></o:p>
+            </span>
         </p>
         <p class="MsoNoSpacing" style="
             line-height: 130%;
@@ -4007,7 +4009,7 @@
             text-indent: -42.55pt;
           ">
             <b><span style="font-family: 'Tahoma', sans-serif">2.1.3.&nbsp;&nbsp; Aspek Sumber Daya Alam<o:p></o:p>
-                    </span></b>
+                </span></b>
         </p>
         <p class="MsoNoSpacing" style="
             line-height: 130%;
@@ -4397,7 +4399,8 @@
                 " valign="bottom" width="425">
                         <p class="MsoNormal">
                             <span lang="IN" style="font-family: Tahoma, sans-serif">Tanaman: padi, jagung dan palawijo
-                                <o:p></o:p></span>
+                                <o:p></o:p>
+                            </span>
                         </p>
                     </td>
                     <td style="
@@ -4463,7 +4466,7 @@
             text-indent: -42.55pt;
           ">
             <b><span style="font-family: 'Tahoma', sans-serif">2.1.4.&nbsp;&nbsp; Aspek Sumber Daya Manusia<o:p></o:p>
-                    </span></b>
+                </span></b>
         </p>
         <p class="MsoNoSpacing" style="
             line-height: 130%;
@@ -4493,7 +4496,7 @@
         </p>
         <p align="center" class="MsoNoSpacing" style="margin-left: 70.9pt; tab-stops: 70.9pt 4cm; text-align: center">
             <span style="font-family: 'Tahoma', sans-serif">Daftar Sumber Daya Manusia di DesaKesimantengah<o:p></o:p>
-                </span>
+            </span>
         </p>
         <table border="1" cellpadding="0" cellspacing="0" class="MsoNormalTable" style="
             border-collapse: collapse;
@@ -5014,7 +5017,7 @@
                 " width="400">
                         <p class="MsoNormal">
                             <span style="font-family: Tahoma, sans-serif">b. Pertambangan dan penggalian<o:p></o:p>
-                                </span>
+                            </span>
                         </p>
                     </td>
                     <td style="
@@ -5148,7 +5151,8 @@
                 " width="400">
                         <p class="MsoNormal">
                             <span style="font-family: Tahoma, sans-serif">d. Perdagangan besar/eceran dan rumah makan
-                                <o:p></o:p></span>
+                                <o:p></o:p>
+                            </span>
                         </p>
                     </td>
                     <td style="
@@ -5546,7 +5550,7 @@
                 " width="400">
                         <p class="MsoNormal">
                             <span lang="IN" style="font-family: Tahoma, sans-serif">b. Lulusan D1,D2,D3<o:p></o:p>
-                                </span>
+                            </span>
                         </p>
                     </td>
                     <td style="
@@ -5810,7 +5814,7 @@
                         <p class="MsoNormal">
                             <span lang="IN" style="font-family: Tahoma, sans-serif">f</span><span
                                 style="font-family: Tahoma, sans-serif">. Tidak tamat SD/ tidak sekolah<o:p></o:p>
-                                </span>
+                            </span>
                         </p>
                     </td>
                     <td style="
@@ -7400,7 +7404,7 @@
                 " valign="bottom" width="410">
                         <p class="MsoNormal">
                             <span style="font-family: Tahoma, sans-serif">Kelompok Usaha Ekonomi Produktif<o:p></o:p>
-                                </span>
+                            </span>
                         </p>
                     </td>
                     <td style="
@@ -7539,7 +7543,7 @@
                 " valign="bottom" width="410">
                         <p class="MsoNormal">
                             <span style="font-family: Tahoma, sans-serif">b. Jumlah kelompok usaha yang sehat<o:p></o:p>
-                                </span>
+                            </span>
                         </p>
                     </td>
                     <td style="
@@ -7809,7 +7813,7 @@
                 " width="425">
                         <p class="MsoNormal">
                             <span lang="IN" style="font-family: Tahoma, sans-serif">Budaya gotong-royong<o:p></o:p>
-                                </span>
+                            </span>
                         </p>
                     </td>
                     <td style="
@@ -8081,7 +8085,7 @@
                 ">&nbsp;&nbsp;&nbsp;
                     </span></span></b>
             <!--[endif]--><b><span style="font-family: 'Tahoma', sans-serif">Kondisi Pemerintahan Desa<o:p></o:p>
-                    </span></b>
+                </span></b>
         </p>
         <p class="MsoNoSpacing" style="
             line-height: 130%;
@@ -9926,40 +9930,39 @@
     </div>
     <!-- akhir artikel -->
 
-    <div class="tentang-artikel">
-        <div class="row">
-            <div class="col-3">
-                <h4>Share Artikel Ini Melalui :</h4>
+    <div class="tentang-artikel mt-5">
+        <div class="item-share">
+            <h4>Share Artikel Ini Melalui : </h4>
+        </div>
+        <div class="warp-share-parent d-flex align-content-between flex-wrap">
+            <div class="warp-share mt-3">
+                <div class="item-share ms-3">
+                    <button type="button" class="btn btn-success mb-4" style="width: 250px; height: 60px;"><img
+                            src="/img/logos_whatsapp.png" class="me-2">
+                        Whatsapp</button>
+                </div>
+                <div class="item-share ms-3">
+                    <button type="button" class="btn"
+                        style="color: #fff; width: 250px; height: 60px; background-color: #91A1F4;"><img
+                            src="/img/fb.png" class="me-2">
+                        Facebook</button>
+                </div>
             </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-success mb-4" style="width: 250px; height: 60px">
-                    <img src="/img/logos_whatsapp.png" class="me-2" />
-                    Whatsapp</button><br />
-                <button type="button" class="btn" style="
-                color: #fff;
-                width: 250px;
-                height: 60px;
-                background-color: #91a1f4;
-              ">
-                    <img src="/img/fb.png" class="me-2" /> Facebook
-                </button>
-            </div>
-            <div class="col-3">
-                <button type="button" class="btn btn-danger mb-4" style="width: 250px; height: 60px">
-                    <img src="/img/ig.png" class="me-2" /> Instagram</button><br />
-                <button type="button" class="btn" style="
-                color: #fff;
-                width: 250px;
-                height: 60px;
-                background-color: #91a1f4;
-              ">
-                    <img src="/img/twt.png" class="me-2" /> Twiter
-                </button>
+            <div class="warp-share mt-3">
+                <div class="item-share ms-3">
+                    <button type="button" class="btn btn-danger mb-4" style="width: 250px; height: 60px;"><img
+                            src="/img/ig.png" class="me-2">
+                        Instagram</button>
+                </div>
+                <div class="item-share ms-3">
+                    <button type="button" class="btn"
+                        style="color: #fff; width: 250px; height: 60px; background-color: #91A1F4;"><img
+                            src="/img/twt.png" class="me-2">
+                        Twiter</button>
+                </div>
             </div>
         </div>
     </div>
-
-    <div style="height: 500px"></div>
 </div>
 
 <?= $this->endSection(); ?>

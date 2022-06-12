@@ -31,6 +31,52 @@
 
     <?= $this->renderSection('content') ?>
 
+    <div style="height: 300px;">
+    </div>
+
+    <footer>
+        <div class='footer-menu' id='subscribe-footer'>
+            <h3>Newsletter</h3>
+            <p>
+                Agar dapat mengetahui artikel terbaru dari blog ini bisa langsung
+                berlangganan via email gratis.
+            </p>
+            <div class="emailfooter">
+                <form action="https://feedburner.google.com/fb/a/mailverify" method="post"
+                    onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=Blog-simplifydua', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"
+                    target="popupwindow">
+                    <input name="email" onblur='if (this.value == "") {this.value = "Email address";}'
+                        onfocus='if (this.value == "Email address") {this.value = "";}' type="text"
+                        value="Email address" />
+                    <input name="uri" type="hidden" value="simplifydua" />
+                    <input name="loc" type="hidden" value="en_US" />
+                    <input class="submitfooter" type="submit" value="Submit" />
+                </form>
+            </div>
+        </div>
+        <div id="footbawah">
+            <div class="maxiwrap">
+                <div class="footbawahkiri">
+                    Copyright &#169; <span id="current-year" />
+                    <a expr:href="data:blog.homepageUrl" itemprop="creator" itemscope="itemscope"
+                        itemtype="http://schema.org/Person"><span itemprop="name">
+                            <data:blog.title />
+                        </span></a>
+                    All Right Reserved
+                </div>
+                <div class="footbawahkanan">
+                    Designed by
+                    <span id="lightcredits"><a href="http://kesimantengah.my.id/" target="_blank"
+                            title="Kreativitas adalah kunci kesuksesan">Andi Ayub Laskhanugraha</a></span>
+                    Powered by
+                    <a href="https://kesimantengah.my.id/" rel="nofollow" target="_blank"
+                        title="Powered by Kesimantengah">Kesimantengah</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>

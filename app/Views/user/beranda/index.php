@@ -211,7 +211,6 @@
                         <span>Peta Desa</span>
                     </div>
                 </div>
-                <div style="height: 300px;"></div>
             </div>
         </div>
     </div>

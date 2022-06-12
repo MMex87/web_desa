@@ -1,6 +1,6 @@
-<?= $this->extend('layouts/template2'); ?>
+<?= $this->extend('layouts/template3'); ?>
 
-<?= $this->section('content2'); ?>
+<?= $this->section('content3'); ?>
 
 <div class="container">
     <div class=" title" style="font-size: 25px;font-weight: bold; margin-left: 0px; margin-bottom: 0px;">
@@ -136,6 +136,5 @@
             </form>
         </div>
     </div>
-</div>
 </div>
 <?= $this->endSection(); ?>

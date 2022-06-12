@@ -1,6 +1,6 @@
-<?= $this->extend('layouts/template2'); ?>
+<?= $this->extend('layouts/template3'); ?>
 
-<?= $this->section('content2'); ?>
+<?= $this->section('content3'); ?>
 
 <div class="container">
     <div style="margin-left: -40px; margin-bottom: 20px;">
