@@ -17,9 +17,15 @@ class Surat extends BaseController
     {
         $data = [
             'navbar' => 'surat',
-            'title' => 'surat'
+            'title' => 'surat',
+            'validation' => \Config\Services::validation()
         ];
         return view('/user/surat/index', $data);
+    }
+
+    public function downloadPanduan()
+    {
+        return $this->response->download('pdf/BUKU_PANDUAN_PELAYANAN_SURAT.pdf', null);
     }
 
     public function skck()
@@ -142,7 +148,7 @@ class Surat extends BaseController
                 $email_smtp->setTo($row['email']);
 
                 $email_smtp->setSubject("Ada surat SKCK Baru");
-                $email_smtp->setMessage("Surat baru dari formulir Surat Keterangan dengan Nomor Permohonan No." . $id_surat . ", silahkan cek web desa kesimantengah dengan click link berikut untuk mengunduh surat tersebut : 
+                $email_smtp->setMessage("Surat baru dari formulir Surat Keterangan dengan Nomor Permohonan No." . $id_surat->id_surat . ", silahkan cek web desa kesimantengah dengan click link berikut untuk mengunduh surat tersebut : 
                     http://kesimantengah.my.id/admin");
 
                 $email_smtp->send();
@@ -259,7 +265,7 @@ class Surat extends BaseController
                 $email_smtp->setTo($row['email']);
 
                 $email_smtp->setSubject("Ada Surat Keterangan Baru");
-                $email_smtp->setMessage("Surat baru dari formulir Surat Keterangan dengan Nomor Permohonan No." . $id_surat . ", silahkan cek web desa kesimantengah dengan click link berikut untuk mengunduh surat tersebut : 
+                $email_smtp->setMessage("Surat baru dari formulir Surat Keterangan dengan Nomor Permohonan No." . $id_surat->id_surat . ", silahkan cek web desa kesimantengah dengan click link berikut untuk mengunduh surat tersebut : 
                     http://kesimantengah.my.id/admin");
 
                 $email_smtp->send();
@@ -486,6 +492,7 @@ class Surat extends BaseController
         $id_surat = $db->query('SELECT * FROM tbl_surat_kedua')->getLastRow();
 
         // dd($id_surat);
+        // dd($id_surat->id_surat);
 
         $email_smtp = \Config\Services::email();
 
@@ -503,6 +510,7 @@ class Surat extends BaseController
                 $email_smtp->send();
             }
         }
+
 
         $data = [
             'navbar'        => 'surat',
@@ -527,23 +535,110 @@ class Surat extends BaseController
         $pdf->setSubject('Nomor Pengambilan');
         $pdf->setKeywords('Nomor Pengambilan');
 
-        $pdf->setFont('times', '', 45, '', true);
+        $pdf->setFont('times');
 
-        $pdf->AddPage('P', 'A4');
+        $pdf->AddPage('P', 'F4');
 
-        $html = '<!doctype html>
-        <html lang="en">
-        
-        <body>
-            
-            <h1>Nomer Pengambilan</h1>
-            <br>
-            <br>
-            <span style="font-size: 150px;">' . $id . '</span>
+        $html = '<body>
+        <!-- garis -->
+        <div 
+            class="line"
+            style="
+                background-color: black;
+                width: 80%;
+                height: 2px;
+                margin-left: 11%;">
+        </div>
+        <div 
+        class="line"
+        style="
+            background-color: black;
+            width: 80%;
+            height: 2px;
+            margin-left: 11%;
+            margin-top: 3px;">
+    </div>
+        <!-- garis -->
 
-        </body>
+        <table>
+            <tr>
+                <td>
+                <div class="text" style="font-size: xx-small; font-weight: 900;">
+                    <font size="25" weight="bold">Nomor Pengambilan Surat</font>
+                    <br><br><br><br><br><br>
+                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <font size="100">No. ' . $id . '</font>
+                        <br><br><br><br><br><br>
+                    </div>
+                </td>
+            </tr>
 
-        </html>';
+            <tr>
+                <td>
+                    <font size="25"> Nomor pengambilan ini kepada
+                    perangakt desa untuk pengambilan Surat
+                    yang telah di buat secara online.
+                    Pastikan membawa <b>KTP asli</b> dan <b>KK asli</b>
+                    sebagai persyaratan untuk pengambilan 
+                    surat.
+                    </font><br><br><br><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <table>
+                    <tr>
+                        <td>
+                            <font size="25">
+                                Hubungi : <br>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font size="25">
+                                Telepon : 0891-xxxx-xxxx<br>
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font size="25">
+                                Email : webkesiman@gmail.com <br>
+                            </font>
+                        </td>
+                    </tr>  
+                </table>
+                
+                </td>
+            </tr>
+        </table>
+    
+        <!-- isi -->
+
+        <br>
+            <!-- garis -->
+            <div 
+            class="line"
+            style="
+                background-color: black;
+                width: 80%;
+                height: 2px;">
+        </div>
+        <div 
+        class="line"
+        style="
+            background-color: black;
+            width: 80%;
+            height: 2px;">
+    </div>
+        <!-- garis -->
+    </body>';
 
         $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
 
@@ -553,6 +648,6 @@ class Surat extends BaseController
 
         // Close and output PDF document
         // This method has several options, check the source code documentation for more information.
-        $pdf->Output('Nomer_Pengambilan_' . $id . '.pdf', 'D');
+        $pdf->Output('Nomer_Pengambilan_' . $id . '.pdf', 'I');
     }
 }

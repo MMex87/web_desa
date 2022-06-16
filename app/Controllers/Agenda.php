@@ -48,13 +48,31 @@ class Agenda extends BaseController
         $desc = $this->request->getVar('desc');
 
 
-        $this->agendaModel->save([
+        $sukses = $this->agendaModel->save([
             'nama_agenda' => $nama,
             'tanggal_mulai' => $tglM,
             'tanggal_selesai' => $tglS,
             'deskripsi_agenda' => $desc,
             'status' => 1
         ]);
+
+        $db = \Config\Database::connect();
+        $email_smtp = \Config\Services::email();
+
+        if ($sukses) {
+            $user = $db->query('SELECT * FROM user_informasi')->getResultArray();
+            foreach ($user as $row) {
+
+                $email_smtp->setFrom("kesimantengah123@gmail.com", "Kesimantengah");
+                $email_smtp->setTo($row['email']);
+
+                $email_smtp->setSubject("Agenda baru sudah hadir");
+                $email_smtp->setMessage("Agenda baru telah hadir di Web Desa Kesimantengah, silahkan kunjungi link berikut untuk mengetahui lebih lanjut : 
+                    http://kesimantengah.my.id/informasi");
+
+                $email_smtp->send();
+            }
+        }
 
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->back();

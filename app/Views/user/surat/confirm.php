@@ -20,9 +20,9 @@
             <button type="button" class="btn btn-outline-secondary me-3"
                 onclick="top.location='/surat'">Kembali</button>
         </div>
-        <?= ($nama_surat == 'Surat Keterangan' || $nama_surat == 'Surat Keterangan Catatan Kepolisian') ? '<div> <button type="button" class="btn btn-outline-primary" onclick="top.location=`/surat/download?id_surat=<?= $id_surat ?>`">Download</button>
+        <?= ($nama_surat == 'Surat Keterangan' || $nama_surat == 'Surat Keterangan Catatan Kepolisian') ? '<div> <button type="button" class="btn btn-outline-primary" onclick="top.location=`/surat/download?id_surat=' . $id_surat . '`">Download</button>
     </div>' : '' ?>
-</div>
+    </div>
 
 </div>
 

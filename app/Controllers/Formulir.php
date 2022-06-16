@@ -18,7 +18,8 @@ class Formulir extends BaseController
     {
         $data = [
             'navbar'    => 'formulir',
-            'title'     => 'Data Formulir'
+            'title'     => 'Data Formulir',
+            'validation' => \Config\Services::validation()
         ];
 
         return view('/admin/dataformulir/index', $data);

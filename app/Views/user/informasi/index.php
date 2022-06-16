@@ -121,7 +121,9 @@
                         </div>
                     </div>
                     <?php
-                            $i++;
+                            if ($row['judul_artikel']) {
+                                $i++;
+                            }
                         endforeach; ?>
                 </div>
                 <?php else : ?>
@@ -135,6 +137,7 @@
                 <?php endif; ?>
             </div>
         </div>
+        <div style="height: 100px;"></div>
     </div>
 </div>
 
@@ -143,23 +146,37 @@ $(document).ready(function() {
     const lebar = $(window).width();
     $(window).resize(function() {
         const lebar = $(window).width();
-        if (lebar < 768)
+        if (lebar < 768) {
             $('.kartu').css({
                 'margin-bottom': '220px'
             })
-        else
+            $('.kartu-tengah').css({
+                'max-height': '50px'
+            })
+        } else {
             $('.kartu').css({
                 'margin-bottom': '20px'
             })
+            $('.kartu-tengah').css({
+                'max-height': '100px'
+            })
+        }
     })
-    if (lebar < 768)
+    if (lebar < 768) {
         $('.kartu').css({
             'margin-bottom': '220px'
         })
-    else
+        $('.kartu-tengah').css({
+            'max-height': '50px'
+        })
+    } else {
         $('.kartu').css({
             'margin-bottom': '20px'
         })
+        $('.kartu-tengah').css({
+            'max-height': '100px',
+        })
+    }
 })
 </script>
 

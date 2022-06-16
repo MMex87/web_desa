@@ -65,7 +65,7 @@
                 </nav>
             </div>
             <div class="badan">
-                <div>
+                <div id="warp_kartu">
                     <?php foreach ($agenda as $row) : ?>
                     <div class="kartu mb-3" style="background: #EBEBEB;">
                         <div class="row">
@@ -200,7 +200,7 @@
 
 <script>
 $(document).ready(function() {
-    $('#kartu').on('click', '.ubah', function() {
+    $('#warp_kartu').on('click', '.ubah', function() {
         const id = $(this).data('id');
         const nama = $(this).data('nama_ag');
         const tglM = $(this).data('tgl_m');

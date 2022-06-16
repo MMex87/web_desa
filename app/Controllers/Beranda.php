@@ -20,7 +20,8 @@ class Beranda extends BaseController
             'navbar'    => 'beranda',
             'title'     => 'beranda',
             'artikel'   => $artikel,
-            'agenda'    => $agenda
+            'agenda'    => $agenda,
+            'validation' => \Config\Services::validation()
         ];
 
         return view('/user/beranda/index', $data);

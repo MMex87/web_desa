@@ -87,12 +87,29 @@ class Artikel extends BaseController
             $gambar->move('img/artikel', $namaGambar);
         }
 
-        $this->artikelModel->save([
+        $sukses = $this->artikelModel->save([
             'judul_artikel' => $judul,
             'gambar'        => $namaGambar,
             'artikel'       => $artikel,
             'status'        => 1
         ]);
+        $db = \Config\Database::connect();
+        $email_smtp = \Config\Services::email();
+
+        if ($sukses) {
+            $user = $db->query('SELECT * FROM user_informasi')->getResultArray();
+            foreach ($user as $row) {
+
+                $email_smtp->setFrom("kesimantengah123@gmail.com", "Kesimantengah");
+                $email_smtp->setTo($row['email']);
+
+                $email_smtp->setSubject("Artikel baru sudah hadir");
+                $email_smtp->setMessage("Artikel baru telah hadir di Web Desa Kesimantengah, silahkan kunjungi link berikut untuk mengetahui lebih lanjut : 
+                    http://kesimantengah.my.id/informasi");
+
+                $email_smtp->send();
+            }
+        }
 
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->back();

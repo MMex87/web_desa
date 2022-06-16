@@ -20,12 +20,13 @@ class ArtikelModel extends Model
         return $this->where(['id_artikel' => $id])->first();
     }
 
-    public function cariArtikel($keyword)
+    public function cariArtikel($keyword = false)
     {
 
-        // $builder = $this->like('judul_artikel', $keyword);
-        // return $builder;
+        if ($keyword == false) {
+            return $this->where(['status' => '1'])->findAll();
+        }
 
-        return $this->table('tbl_artikel')->like('judul_artikel', $keyword)->orLike('artikel', $keyword);
+        return $this->table('tbl_artikel')->like('judul_artikel', $keyword)->where(['status' => '1'])->findAll();
     }
 }

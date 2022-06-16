@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <div class="row cardlayout">
+        <div class="row cardlayout" style="cursor: pointer;" onclick="top.location='/informasi'">
             <div class="headcard">
                 <span>Kotak Article</span>
             </div>
@@ -102,7 +102,7 @@
             </button>
         </div>
 
-        <div class="row cardlayout">
+        <div class="row cardlayout" style="cursor: pointer;" onclick="top.location='/informasi'">
             <div class="headcard">
                 <span>Agenda Terdekat</span>
             </div>
@@ -152,6 +152,7 @@
                         $date2 = $agenda[1]['tanggal_selesai'];
                         $datetime2 = DateTime::createFromFormat('Y-m-d', $date2);
                         $hari2 = $datetime2->format('l');
+                        $hari2 = getHari($hari1);
                     endif;
 
                     ?>
@@ -162,7 +163,7 @@
                     </div>
                     <div class="col-6">
                         <h5>
-                            <?= (isset($agenda[1]) ? $hari1 . ', ' . date('d-m-Y', strtotime($agenda[1]['tanggal_selesai'])) : '') ?>
+                            <?= (isset($agenda[1]) ? $hari2 . ', ' . date('d-m-Y', strtotime($agenda[1]['tanggal_selesai'])) : '') ?>
                         </h5>
                     </div>
 
@@ -182,7 +183,7 @@
                     </div>
                 </div>
 
-                <div class="row cardlayout">
+                <div class="row cardlayout" style="cursor: pointer;" onclick="top.location='/surat'">
                     <div class="headcard">
                         <span>Pelayanan Surat</span>
                     </div>
@@ -206,15 +207,17 @@
                     </div>
                 </div>
 
-                <div class="row cardlayout">
+                <!-- <div class="row cardlayout">
                     <div class="headcard">
                         <span>Peta Desa</span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </div>
+
+<div style="height: 300px;"></div>
 
 
 <script>

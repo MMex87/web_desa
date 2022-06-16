@@ -17,37 +17,41 @@ class Informasi extends BaseController
     public function index()
     {
         $db = \Config\Database::connect();
-        $builderArtikel = $db->table('tbl_artikel');
+        $builderArtikel = $this->artikelModel->builder();
 
         $keyArtikel = $this->request->getVar('cariArtikel');
         $keyAgenda = $this->request->getVar('cari_agenda');
 
         if ($keyArtikel) {
-            $artikel = $db->query('SELECT * FROM `tbl_artikel` WHERE judul_artikel LIKE "%' . $keyArtikel . '%"AND status = 1')->getResultArray();
-            $builderArtikel->like($keyArtikel);
-            $builderArtikel->from('judul_artikel');
+            $artikel = $this->artikelModel->cariArtikel($keyArtikel);
+            $builderArtikel->like('judul_artikel', $keyArtikel);
             $builderArtikel->where('status', 1);
-            $artikelWaktu = $db->query('SELECT crated_at FROM `tbl_artikel` WHERE judul_artikel LIKE "%' . $keyArtikel . '%"AND status = 1')->getResultArray();
+            $isiArtikel = $builderArtikel->countAllResults();
+            $artikelWaktu = $this->artikelModel->cariArtikel($keyArtikel);
         } else {
-            $artikel = $db->query('SELECT * FROM `tbl_artikel` WHERE status = 1')->getResultArray();
-            $builderArtikel->where('status', 1);
-            $artikelWaktu = $db->query('SELECT created_at FROM `tbl_artikel` WHERE status = 1')->getResultArray();
+            $artikel = $this->artikelModel->cariArtikel();
+            $builderArtikel->where('status', '1');
+            $isiArtikel = $builderArtikel->countAllResults();
+            $artikelWaktu = $this->artikelModel->cariArtikel();
         }
 
         if ($keyAgenda) {
-            $agenda = $db->query(('SELECT * FROM tbl_agenda WHERE nama_agenda LIKE "%' . $keyAgenda . '%" AND statyus = 1'))->getResultArray();
+            $agenda = $db->query('SELECT * FROM tbl_agenda WHERE nama_agenda LIKE "%' . $keyAgenda . '%" AND status = 1')->getResultArray();
         } else {
             $agenda = $this->agendaModel->getTerdekat();
         }
 
+        $currentPage = $this->request->getVar('page_artikel') ? $this->request->getVar('page_artikel') : 1;
+
 
         // d($artikelWaktu);
-        // dd($isiArtikel);
+        // d($isiArtikel);
+        // dd($artikel);
 
         // $update = Time::parse('March 9, 2016 12:00:00', 'Asia/Jakarta');
         // $update->humanize();
 
-        $isiArtikel = $builderArtikel->countAllResults();
+
         $i = 0;
         if ($isiArtikel) {
             while ($i < $isiArtikel) {
@@ -67,7 +71,8 @@ class Informasi extends BaseController
             'keyArtikel'    => $keyArtikel,
             'agenda'        => $agenda,
             'cariAgenda'    => $keyAgenda,
-            'waktu'         => $waktu
+            'waktu'         => $waktu,
+            'validation'    => \Config\Services::validation()
         ];
         return view('/user/informasi/index', $data);
     }
@@ -86,5 +91,35 @@ class Informasi extends BaseController
             'artikel' => $artikel
         ];
         return view('/user/artikel/index', $data);
+    }
+
+    public function saveEmail()
+    {
+        if (!$this->validate([
+            "email" => [
+                'rules' => 'valid_email|is_unique[user_informasi.email]',
+                'errors' => [
+                    'valid_email' => 'email yang anda masukan tidak valid',
+                    'is_unique' => 'email yang anda masukan sudah terdaftar'
+                ]
+            ]
+        ])) {
+            return redirect()->back()->withInput();
+        }
+
+
+        $db = \Config\Database::connect();
+        $email = $this->request->getVar('email');
+        $data = [
+            'email' => $email
+        ];
+
+
+        $save = $db->table('user_informasi');
+        $confirm = $save->insert($data);
+        if ($confirm)
+            return redirect()->back()->with('berhasil', 'Terimakasih Data berhasil di inputkan, tunggu updatean terbaru dari web kami');
+        else
+            return redirect()->back()->with('gagal', 'Data Gagal Di tambahkan');
     }
 }

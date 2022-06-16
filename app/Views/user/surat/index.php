@@ -7,7 +7,18 @@
     </div>
 </div>
 
-<div class="container" style="margin-top: 100px">
+<div class="warp-panduan">
+    <div class="panduan" onclick="top.location='/surat/downloadPanduan'">
+        <div class="panduan-left">
+            <img src="/img/book.png">
+        </div>
+        <div class="panduan-right">
+            <span class="panduan-title">Buku Panduan Pembuatan Surat Online</span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
     <div style="width: 100%">
         <div class="row cardlayout">
             <div class="headcard">

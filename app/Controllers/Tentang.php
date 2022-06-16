@@ -8,7 +8,8 @@ class Tentang extends BaseController
     {
         $data = [
             'navbar' => 'tentang',
-            'title' => 'tentang'
+            'title' => 'tentang',
+            'validation' => \Config\Services::validation()
         ];
         return view('/user/tentang/index', $data);
     }
@@ -16,7 +17,8 @@ class Tentang extends BaseController
     {
         $data = [
             'navbar' => 'tentang',
-            'title' => 'umum'
+            'title' => 'umum',
+            'validation' => \Config\Services::validation()
         ];
         return view('/user/tentang/umum', $data);
     }
@@ -24,7 +26,8 @@ class Tentang extends BaseController
     {
         $data = [
             'navbar' => 'tentang',
-            'title' => 'pemerintahan'
+            'title' => 'pemerintahan',
+            'validation' => \Config\Services::validation()
         ];
         return view('/user/tentang/pemerintahan', $data);
     }
@@ -32,7 +35,8 @@ class Tentang extends BaseController
     {
         $data = [
             'navbar' => 'tentang',
-            'title' => 'geografi'
+            'title' => 'geografi',
+            'validation' => \Config\Services::validation()
         ];
         return view('/user/tentang/geografi', $data);
     }

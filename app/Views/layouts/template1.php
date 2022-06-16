@@ -29,10 +29,20 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
+    <?php if (session()->getFlashdata('berhasil')) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <?= session()->getFlashdata('berhasil'); ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php elseif ($validation->getError('email')) : ?>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <?= "Gagal, " . $validation->getError('email')  ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php endif; ?>
+
     <?= $this->renderSection('content') ?>
 
-    <div style="height: 300px;">
-    </div>
 
     <footer>
         <div class='footer-menu' id='subscribe-footer'>
@@ -42,14 +52,8 @@
                 berlangganan via email gratis.
             </p>
             <div class="emailfooter">
-                <form action="https://feedburner.google.com/fb/a/mailverify" method="post"
-                    onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=Blog-simplifydua', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true"
-                    target="popupwindow">
-                    <input name="email" onblur='if (this.value == "") {this.value = "Email address";}'
-                        onfocus='if (this.value == "Email address") {this.value = "";}' type="text"
-                        value="Email address" />
-                    <input name="uri" type="hidden" value="simplifydua" />
-                    <input name="loc" type="hidden" value="en_US" />
+                <form action="/informasi/saveEmail" method="post">
+                    <input name="email" type="email" placeholder="Email address" value="<?= old('email') ?>" />
                     <input class="submitfooter" type="submit" value="Submit" />
                 </form>
             </div>
