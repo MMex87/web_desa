@@ -75,15 +75,15 @@
                 <tr>
                     <td colspan="3"></td>
                 </tr>
+                <tr>
+                    <th scope="row">Tujuan</th>
+                    <td>:</td>
+                    <td><?= $surat['tujuan']; ?></td>
+                </tr>
                 <tr style="visibility: <?= ($keterangan == 'skck') ? 'hidden' : '' ?>;">
                     <th scope="row">Maksud</th>
                     <td>:</td>
                     <td><?= $surat['maksud']; ?></td>
-                </tr>
-                <tr style="visibility: <?= ($keterangan == 'skck') ? 'hidden' : '' ?>;">
-                    <th scope="row">Tujuan</th>
-                    <td>:</td>
-                    <td><?= $surat['tujuan']; ?></td>
                 </tr>
             </table>
         </div>

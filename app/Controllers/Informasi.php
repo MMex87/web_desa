@@ -38,7 +38,7 @@ class Informasi extends BaseController
         if ($keyAgenda) {
             $agenda = $db->query('SELECT * FROM tbl_agenda WHERE nama_agenda LIKE "%' . $keyAgenda . '%" AND status = 1')->getResultArray();
         } else {
-            $agenda = $this->agendaModel->getTerdekat();
+            $agenda = $this->agendaModel->getAgenda();
         }
 
         $currentPage = $this->request->getVar('page_artikel') ? $this->request->getVar('page_artikel') : 1;
@@ -88,7 +88,8 @@ class Informasi extends BaseController
             'title' => 'Artikel',
             'judul' => $judul,
             'gambar' => $gambar,
-            'artikel' => $artikel
+            'artikel' => $artikel,
+            'validation'    => \Config\Services::validation()
         ];
         return view('/user/artikel/index', $data);
     }

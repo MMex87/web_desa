@@ -16,7 +16,7 @@ class AgendaModel extends Model
         if ($id == false) {
             return $this->orderBy('nama_agenda', 'asc')->where('status', 1)->findAll();
         }
-        return $this->where(['id_agenda' => $id])->first();
+        return $this->where(['id_agenda' => $id])->where('status', 1)->first();
     }
     public function getTerdekat()
     {

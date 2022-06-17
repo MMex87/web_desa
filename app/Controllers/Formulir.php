@@ -634,7 +634,7 @@ class Formulir extends BaseController
             <tr>
                 <td colspan="3">
                     <p style="text-indent: 45px;">Surat keterangan ini dipergunakan untuk :</p>
-                    <p style="text-indent: 160px; "><strong>PERSYARATAN MELAMAR KERJA.</strong></p>
+                    <p style="text-indent: 160px; "><strong>' . $surat['tujuan'] . '.</strong></p>
                 </td>
             </tr>
             <tr>

@@ -108,6 +108,16 @@
                 <div class="invalid-feedback">
                     <?= $validation->getError('alamat'); ?>
                 </div>
+                <br>
+                <div class="mb-3">
+                    <label for="tujuan" class="form-label">Tujuan</label>
+                    <input class="form-control <?= ($validation->hasError('tujuan') ? 'is-invalid' : ''); ?>"
+                        id="tujuan" type="text" placeholder="PERSYARATAN MELAMAR KERJA" name="tujuan"
+                        aria-placeholder="default input example" rows="3"><?= old('tujuan'); ?></input>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('tujuan'); ?>
+                    </div>
+                </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end btnb">
                     <button class="btn btn-primary me-md-2" type="button"
                         onclick="top.location='/surat'">Kembali</button>

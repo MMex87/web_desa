@@ -117,9 +117,11 @@ class Surat extends BaseController
         $kawin = $this->request->getVar('kawin');
         $agama = $this->request->getVar('agama');
         $alamat = $this->request->getVar('alamat');
+        $tujuan = $this->request->getVar('tujuan');
 
         // dd($this->request->getVar());
         $nama = strtoupper($nama);
+        $tujuan = strtoupper($tujuan);
 
         $sukses = $this->suratModel->save([
             'nama_lengkap'      => $nama,
@@ -132,6 +134,7 @@ class Surat extends BaseController
             'status_perkawinan' => $kawin,
             'alamat'            => $alamat,
             'agama'             => $agama,
+            'tujuan'            => $tujuan,
             'status'            => '1'
         ]);
 
@@ -161,7 +164,8 @@ class Surat extends BaseController
             'navbar'    => 'surat',
             'title'     => 'surat',
             'nama_surat'    => $id_surat->nama_surat,
-            'id_surat'  => $id_surat->id_surat
+            'id_surat'  => $id_surat->id_surat,
+            'validation' => \Config\Services::validation()
         ];
         return view('/user/surat/confirm', $data);
     }
@@ -229,8 +233,8 @@ class Surat extends BaseController
         $kawin = $this->request->getVar('kawin');
         $agama = $this->request->getVar('agama');
         $alamat = $this->request->getVar('alamat');
-        $maksud = $this->request->getVar('tujuan');
-        $tujuan = $this->request->getVar('maksud');
+        $maksud = $this->request->getVar('maksud');
+        $tujuan = $this->request->getVar('tujuan');
 
         $nama = strtoupper($nama);
 
@@ -278,7 +282,8 @@ class Surat extends BaseController
             'navbar'    => 'surat',
             'title'     => 'surat',
             'nama_surat'    => $id_surat->nama_surat,
-            'id_surat'  => $id_surat->id_surat
+            'id_surat'  => $id_surat->id_surat,
+            'validation' => \Config\Services::validation()
         ];
 
         return view('/user/surat/confirm', $data);
@@ -394,7 +399,8 @@ class Surat extends BaseController
             'navbar'        => 'surat',
             'title'         => 'surat',
             'nama_surat'    => $id_surat->nama_surat,
-            'id_surat'      => $id_surat->id_surat
+            'id_surat'      => $id_surat->id_surat,
+            'validation' => \Config\Services::validation()
         ];
         return view('/user/surat/confirm', $data);
     }
@@ -516,7 +522,8 @@ class Surat extends BaseController
             'navbar'        => 'surat',
             'title'         => 'surat',
             'nama_surat'    => $id_surat->nama_surat,
-            'id_surat'      => $id_surat->id_surat
+            'id_surat'      => $id_surat->id_surat,
+            'validation' => \Config\Services::validation()
         ];
         return view('/user/surat/confirm', $data);
     }

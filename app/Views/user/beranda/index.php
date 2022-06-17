@@ -152,7 +152,7 @@
                         $date2 = $agenda[1]['tanggal_selesai'];
                         $datetime2 = DateTime::createFromFormat('Y-m-d', $date2);
                         $hari2 = $datetime2->format('l');
-                        $hari2 = getHari($hari1);
+                        $hari2 = getHari($hari2);
                     endif;
 
                     ?>
